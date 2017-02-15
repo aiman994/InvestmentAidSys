@@ -1,0 +1,35 @@
+<head>
+<title> Investment Aid System</title>
+</head>
+<link rel="stylesheet" href="/assets/session.scss">
+<body background="/assets/background.png"  style="background-repeat:no-repeat;background-size:cover;">
+   <div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<img src="/assets/logo.png" width="250" >
+			</div>
+
+			<div class="login-form">
+                <form accept-charset="UTF-8" action="/login" method="post">
+                     <input name="utf8" type="hidden" value="&#x2713;" />
+					 <input name="authenticity_token" type="hidden"
+					         value="NNb6+J/j46LcrgYUC60wQ2titMuJQ5lLqyAbnbAUkdo=" />
+				<div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="User ID" id="session_user_id" name = "session[user_id]">
+				<label class="login-field-icon fui-user" for="session_user_id"></label>
+				</div>
+
+				<div class="control-group">
+				<input type="password" class="login-field" value="" placeholder="Password" id="session_fac_pass" name ="session[password_digest]">
+				<label class="login-field-icon fui-lock" for="session_fac_pass"></label>
+				</div>
+
+                
+                     <input class="btn btn-primary btn-large btn-block" name="commit" type="submit" value="Log in" />
+                </form>
+                
+				<a class="login-link" href="#">Forgot your password?</a>
+			</div>
+		</div>
+</div>
+</body>
