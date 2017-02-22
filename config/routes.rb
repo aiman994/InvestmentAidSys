@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+    resources :users
+
+  get 'user/signup'
 
   get 'analyzer/centralAnalysis'
 
@@ -7,7 +10,7 @@ Rails.application.routes.draw do
   get 'viewer/company'
 
   get 'welcome/about'
-
+    post '/users' => 'users#create'
     root 'welcome#homepage'    
     get 'session/login'
     get 'welcome/homepage'

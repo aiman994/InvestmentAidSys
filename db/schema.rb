@@ -10,11 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216053115) do
+ActiveRecord::Schema.define(version: 20170222165624) do
 
-  create_table "stocks", force: :cascade do |t|
+  create_table "stock_historic_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "stock_tickers"
+    t.string   "price_date"
+    t.float    "price_close",   limit: 24
+    t.float    "price_high",    limit: 24
+    t.float    "price_low",     limit: 24
+    t.float    "price_open",    limit: 24
+    t.float    "volume",        limit: 24
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "userId"
+    t.string   "userFname"
+    t.string   "password_digest"
+    t.string   "user_Cntct"
+    t.string   "user_email"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

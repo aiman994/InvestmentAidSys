@@ -36,9 +36,9 @@
         </div>
     </div>
     
-    <h1>patut kat sini <%= system("python app/assets/pythonScripts/hello-world.py") %></h1>   
+    <h1>pulling data from yahoo and insert in db </h1>   
     <!--  change file name to basic graph to get result-->                         
-    <%= stdout, stdeerr, status = Open3.capture3("python app/assets/pythonScripts/hello-world.py") %>
-    <h2> ss <%= stdout %></h2>
+    <%= stdout, stdeerr, status = Open3.capture3("python app/assets/pythonScripts/technicalAnalysis.py AAPL" ) %>
+    ss <%= stdout %>
     
 </body>
