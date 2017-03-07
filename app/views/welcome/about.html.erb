@@ -1,6 +1,13 @@
 <link rel="stylesheet" href="/assets/css/session.scss">
 <link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<script src="/assets/javascript/js/Highstock/highstock.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+
 <head> <div><nav class="navbar navbar-inverse navbar-fixed-top">
         <a class="navbar-brand" href="#">Investment Aid System</a>
         <ul class="nav navbar-nav">
@@ -16,8 +23,14 @@
 </head>
 <br>
 <br>
+
 <body>
 <h1>Welcome#about</h1>
+
+
 <h1>hahahahhahahhahaha</h1>
+    <%= stdout, stdeerr, status = Open3.capture3("python app/assets/pythonScripts/chartPlotting.py BAC" ) %>
+    ss  <%= stdout %>
+
    
 </body>
