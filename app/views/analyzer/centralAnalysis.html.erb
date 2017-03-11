@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="/assets/css/session.scss">
+<link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<script src="/assets/javascript/js/Highstock/highstock.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+
+<head> <div><nav class="navbar navbar-inverse navbar-fixed-top">
+        <a class="navbar-brand" href="#">Investment Aid System</a>
+        <ul class="nav navbar-nav">
+            <li ><a href="/views/welcome/homepage.html">Home</a></li>
+            <li><a href="/views/viewer/company.html">Companies</a></li>
+            <li><a href="/views/viewer/news.html">News</a></li>
+            <li class="active"><a href="/views/welcome/about.html">About</a></li>
+            <li><a href="/views/session/login.html">Login</a></li>
+          </ul>
+
+        </nav>
+    </div>
+</head>
+<br>
+<br>
+<h1>Analyzer#centralAnalysis</h1>
+
+
+
+
+<div id="container" style="height: 400px; min-width: 310px"></div>
+<script type="text/javascript">
+ $.getJSON('/views/analyzer/data', function (data) {
+	var processedData = [];
+       data.forEach(function(element){
+
+         var date = (element["price_date"]).split(", ");
+        console.log(date);
+         processedData.push(
+         [
+           Date.UTC(date[0], date[1]-1, date[2]),
+           parseFloat(element["price_close"])
+         ]
+         );
+       });
+
+    //   Highcharts.setOptions({global: { useUTC: false } });
+       Highcharts.stockChart('container', {
+           
+           chart: {
+               width: 900
+           },
+
+           rangeSelector: {
+               selected: 1
+           },
+           title: {
+               text: 'AAPL Stock Price'
+           },
+           series: [{
+               name: 'AAPL',
+               data: processedData,
+               tooltip: {
+                   valueDecimals: 2
+               }
+           }]
+
+       });
+   });
+
+    </script>

@@ -1,0 +1,47 @@
+
+<link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+<style type="text/css">
+.jumbotron.bgimg {
+    background-image: url('/assets/background.png');
+    
+}
+.jumbotron.container {
+    width: 100%;
+    height:auto;
+    
+}
+</style>
+<body>
+    <div><nav class="navbar navbar-inverse navbar-fixed-top">
+        <a class="navbar-brand" href="#">Investment Aid System</a>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/views/welcome/homepage.html">Home</a></li>
+            <li><a href="/views/viewer/company.html">Companies</a></li>
+            <li><a href="/views/viewer/news.html">News</a></li>
+            <li><a href="/views/welcome/about.html">About</a></li>
+            <li><a href="/views/session/login.html">Login</a></li>
+          </ul>
+
+        </nav>
+    </div>
+    <br>
+    <br>
+    
+    <div class="jumbotron bgimg" > 
+        <div class="container">
+            <h1>Investment Aid System</h1>
+                <p>With Technical Analysis and Text Mining Using python and Ruby on Rails</p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+        </div>
+    </div>
+    
+    <h1>pulling data from yahoo and insert in db </h1>   
+    <!--  change file name to basic graph to get result-->                         
+ <%= stdout, stdeerr, status = Open3.capture3("python app/assets/pythonScripts/technicalAnalysis.py BAC" ) %>
+    ss  <%= stdout %>
+   
+
+    
+</body>
