@@ -39,7 +39,7 @@
     
     <h1>pulling data from yahoo and insert in db </h1>   
     <!--  change file name to basic graph to get result-->                         
- <%= stdout, stdeerr, status = Open3.capture3("python app/assets/pythonScripts/technicalAnalysis.py BAC" ) %>
+ <%= stdout, stdeerr, status = Open3.capture3("python app/assets/pythonScripts/industryScrape.py" ) %>
     ss  <%= stdout %>
    
 

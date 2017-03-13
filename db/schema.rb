@@ -10,18 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222165624) do
+ActiveRecord::Schema.define(version: 20170312095144) do
 
   create_table "stock_historic_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string   "stock_tickers"
-    t.string   "price_date"
-    t.float    "price_close",   limit: 24
-    t.float    "price_high",    limit: 24
-    t.float    "price_low",     limit: 24
-    t.float    "price_open",    limit: 24
-    t.float    "volume",        limit: 24
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string "stock_tickers"
+    t.string "price_date"
+    t.float  "price_close",   limit: 24
+    t.float  "price_high",    limit: 24
+    t.float  "price_low",     limit: 24
+    t.float  "price_open",    limit: 24
+    t.float  "volume",        limit: 24
+  end
+
+  create_table "stock_sectors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "sectors_name"
+    t.float    "dayprice_change",      limit: 24
+    t.float    "market_cap",           limit: 24
+    t.float    "p_earning",            limit: 24
+    t.float    "returnEquity",         limit: 24
+    t.float    "div_yield",            limit: 24
+    t.float    "longTermDebttoEquity", limit: 24
+    t.float    "priceTobook",          limit: 24
+    t.float    "netProfitMargin",      limit: 24
+    t.float    "priceToFreecashFlow",  limit: 24
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

@@ -3,8 +3,6 @@ import time
 import datetime
 import sys
 stocks = sys.argv[1] 
-#print sys.argv[2] # prints var2
-#stockToPull = 'AAPL'
 import MySQLdb
 #import csv
 
@@ -37,11 +35,6 @@ def pullData(stock):
                     cursor.execute('INSERT INTO stock_historic_data(stock_tickers,price_date,price_close,price_high,price_low ,price_open,volume)' \
                               ' VALUES(%s,%s,%s,%s,%s,%s,%s)',(stock,v1,v2,v3,v4,v5,v6))
 
-                  #saveFile = open(fileLine,'a')
-                  #lineToWrite = eachLine+'\n'
-                   #saveFile.write(lineToWrite)
-                   # print eachLine + lineToWrite
-        # prints var1
         print 'Pulled '+ stock
         print 'sleeping'
         time.sleep(5)
