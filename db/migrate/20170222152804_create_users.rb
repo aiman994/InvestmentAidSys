@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :user_Cntct
       t.string :user_email
 
-      t.timestamps null: false
+      remove_column :users, :created_at
     end
   end
 end

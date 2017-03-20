@@ -4,7 +4,6 @@ import datetime
 import sys
 stocks = sys.argv[1] 
 import MySQLdb
-#import csv
 
 mydb = MySQLdb.connect(host='localhost',
     user='root',
@@ -15,7 +14,6 @@ cursor = mydb.cursor()
 def pullData(stock):
     
     try:
-      #  fileLine = 'app/assets/'+stock+'.txt' #stock +'.txt' # -- directory for ruby 
         urlToVisit = 'http://chartapi.finance.yahoo.com/instrument/1.0/'+stock+'/chartdata;type=quote;range=1y/csv'
         sourceCode = urllib2.urlopen(urlToVisit).read()
         splitSource = sourceCode.split('\n')
@@ -31,7 +29,7 @@ def pullData(stock):
                     v4 = splitLine[3]
                     v5= splitLine[4]
                     v6 = splitLine[5]
-                    #print splitLine[0]
+                   
                     cursor.execute('INSERT INTO stock_historic_data(stock_tickers,price_date,price_close,price_high,price_low ,price_open,volume)' \
                               ' VALUES(%s,%s,%s,%s,%s,%s,%s)',(stock,v1,v2,v3,v4,v5,v6))
 
@@ -41,8 +39,10 @@ def pullData(stock):
         mydb.commit()
         cursor.close()
         print "Done"
+        
     except Exception ,e:
         print 'main loop',str(e)
+
 
 pullData(stocks)
 

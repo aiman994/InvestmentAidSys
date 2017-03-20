@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312095144) do
+ActiveRecord::Schema.define(version: 20170319103841) do
+
+  create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "company_name"
+    t.string   "stock_tickers"
+    t.string   "icompany_sector"
+    t.string   "company_industry"
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "stock_historic_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "stock_tickers"
@@ -22,19 +30,32 @@ ActiveRecord::Schema.define(version: 20170312095144) do
     t.float  "volume",        limit: 24
   end
 
-  create_table "stock_sectors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string   "sectors_name"
-    t.float    "dayprice_change",      limit: 24
-    t.float    "market_cap",           limit: 24
-    t.float    "p_earning",            limit: 24
-    t.float    "returnEquity",         limit: 24
-    t.float    "div_yield",            limit: 24
-    t.float    "longTermDebttoEquity", limit: 24
-    t.float    "priceTobook",          limit: 24
-    t.float    "netProfitMargin",      limit: 24
-    t.float    "priceToFreecashFlow",  limit: 24
-    t.datetime "created_at",                      null: false
+  create_table "stock_industry", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "industry_name"
+    t.string   "industry_sector"
+    t.string   "dayprice_change",      limit: 49
+    t.string   "market_cap",           limit: 50
+    t.string   "p_earning",            limit: 49
+    t.string   "returnEquity",         limit: 49
+    t.string   "div_yield",            limit: 49
+    t.string   "longTermDebttoEquity", limit: 49
+    t.string   "priceTobook",          limit: 49
+    t.string   "netProfitMargin",      limit: 49
+    t.string   "priceToFreecashFlow",  limit: 49
     t.datetime "updated_at",                      null: false
+  end
+
+  create_table "stock_sectors", primary_key: "sectors_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "sectors_name"
+    t.bigint "dayprice_change"
+    t.string "market_cap",           limit: 100
+    t.bigint "p_earning"
+    t.bigint "returnEquity"
+    t.bigint "div_yield"
+    t.bigint "longTermDebttoEquity"
+    t.bigint "priceTobook"
+    t.bigint "netProfitMargin"
+    t.bigint "priceToFreecashFlow"
   end
 
   create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -48,7 +69,6 @@ ActiveRecord::Schema.define(version: 20170312095144) do
     t.string   "password_digest"
     t.string   "user_Cntct"
     t.string   "user_email"
-    t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
