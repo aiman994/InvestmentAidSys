@@ -8,7 +8,7 @@ class CreateStockHistoricData < ActiveRecord::Migration[5.0]
       t.float :price_low
       t.float :price_open
       t.float :volume
-
+      
        t.timestamps null: false
     end
   end

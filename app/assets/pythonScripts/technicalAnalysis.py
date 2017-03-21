@@ -12,7 +12,8 @@ mydb = MySQLdb.connect(host='localhost',
 
 cursor = mydb.cursor()
 def pullData(stock):
-    
+    cursor.execute('TRUNCATE TABLE stock_historic_data;')
+    mydb.commit()
     try:
         urlToVisit = 'http://chartapi.finance.yahoo.com/instrument/1.0/'+stock+'/chartdata;type=quote;range=1y/csv'
         sourceCode = urllib2.urlopen(urlToVisit).read()
@@ -22,7 +23,7 @@ def pullData(stock):
             splitLine = eachLine.split(',')
             if len(splitLine) == 6:
                 if 'values' not in eachLine:
-                    
+                    now = datetime.datetime.now()
                     v1 = datetime.datetime.strptime(splitLine[0], '%Y%m%d').strftime('%Y, %m, %d')
                     v2 = splitLine[1]
                     v3 = splitLine[2]
@@ -30,8 +31,8 @@ def pullData(stock):
                     v5= splitLine[4]
                     v6 = splitLine[5]
                    
-                    cursor.execute('INSERT INTO stock_historic_data(stock_tickers,price_date,price_close,price_high,price_low ,price_open,volume)' \
-                              ' VALUES(%s,%s,%s,%s,%s,%s,%s)',(stock,v1,v2,v3,v4,v5,v6))
+                    cursor.execute('INSERT INTO stock_historic_data(stock_tickers,price_date,price_close,price_high,price_low ,price_open,volume,updated_at)' \
+                              ' VALUES(%s,%s,%s,%s,%s,%s,%s,%s)',(stock,v1,v2,v3,v4,v5,v6,now))
 
         print 'Pulled '+ stock
         print 'sleeping'

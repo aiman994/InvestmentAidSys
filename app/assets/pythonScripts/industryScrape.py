@@ -10,7 +10,12 @@ mydb = MySQLdb.connect(host='localhost',
     db='investmentaidsys')
     
 cursor = mydb.cursor()
-## database connection########################
+
+mydb.set_character_set('utf8')
+cursor.execute('SET NAMES utf8mb4;')
+cursor.execute('SET CHARACTER SET utf8mb4;')
+cursor.execute('SET character_set_connection=utf8mb4;')
+## database connection##########################################################
 
 def getSectorList():
 
@@ -50,6 +55,8 @@ def getSectorList():
 def getIndustryListbysectors():
       cursor.execute('TRUNCATE TABLE stock_industry;')
       mydb.commit()
+      cursor.execute('TRUNCATE TABLE companies;')
+      mydb.commit()
       
       for sector in range(1,10):
             count=1  
@@ -60,31 +67,35 @@ def getIndustryListbysectors():
             urlindustry=[]          
             data=[]
             databasedrows=[]
-
+            sectorr=[]
+            industry=[]
+            
             parser= soup(htmlfile,"lxml") ########html parser
             tables = parser.find("table", {"bgcolor":"dcdcdc"})
 
             for row in tables:
                 cells = row.findAll("td", {"bgcolor":"ffffee"}) # carik column name of industry
-                cell2 = row.findAll("td", {"align":"right"})
+                celldata = row.findAll("td", {"align":"right"})
 
             for x in range(0,len(cells)):#setiap column
-                
                 industryList.append(cells[x].find('font', {'face':"arial"}).text.replace("\n", ' ')) #got the industry name
                 if cells[x].a:
-                    urlindustry.append(cells[x].a.get('href'))                  # got the url of the industry
+                    urlindustry.append(cells[x].a.get('href'))                  # got the url of the company
 
-            for y in range(9,len(cell2)):
-                    data.append(cell2[y].find('font', {'face':"arial"}).text)  
+            for y in range(9,len(celldata)):
+                    data.append(celldata[y].find('font', {'face':"arial"}).text)
+
 
             databasedrows=list(chunks(data, 9)) # data based on row
-            
+            i=0
             for eachrow in databasedrows:
+                
                 splitline = eachrow
                 sectors=industryList[0].split(': ')
-                sector= sectors[1]
+                sectorr=sectors[1]
                 industry=industryList[count]
-                
+                url= urlindustry[i]
+                print industry
                 if eachrow: # check if row empty
                         now = datetime.datetime.now()
                         v1=splitline[0]
@@ -97,14 +108,18 @@ def getIndustryListbysectors():
                         v8=splitline[7]
                         v9=splitline[8] 
                         cursor.execute('INSERT INTO stock_industry(industry_name,industry_sector,dayprice_change,market_cap,p_earning,returnEquity,div_yield,longTermDebttoEquity,priceTobook,netProfitMargin,priceToFreecashFlow,updated_at)' \
-                                      ' VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)',(industry, sector,v1,v2,v3,v4,v5,v6,v7,v8,v9,now))
+                                      ' VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)',(industry, sectorr,v1,v2,v3,v4,v5,v6,v7,v8,v9,now))
+                        count+=1
+                        mydb.commit()
+                        i+=1
+                        print i
                         
-                        print 'insert into db'+str(sector)
-                        
+                if i < count:
+                        getcompanyList(url,sectorr,industry)    
+
+                    
                 
-                count+=1
-            getcompanyList(urlindustry,sector,industry)    
-            mydb.commit()
+                    
             
 
       cursor.close()
@@ -119,19 +134,17 @@ def chunks(l, n): # to cut the data into rows
 
 #################################################################################################################
 
-def getcompanyList(urlindustry,sector,industry):
+def getcompanyList(url,sector,industry):
+        
     
-        cursor.execute('TRUNCATE TABLE companies;')
-        mydb.commit()
-    
-        for i in range (0,len(urlindustry)):
-            countticker=1
+##        for i in range (0,len(urlindustry)):
+            countticker=0
             companyList=[]
             tickerList=[]
             count = 0
             combo=[]
-            
-            urltoopen= "https://biz.yahoo.com/p/"+urlindustry[i]
+            nourl=0
+            urltoopen= "https://biz.yahoo.com/p/"+url
             htmlfile= urllib.urlopen(urltoopen).read()
             #html parser
 
@@ -142,45 +155,53 @@ def getcompanyList(urlindustry,sector,industry):
                     cells = row.findAll("td", {"bgcolor":"ffffee"}) # carik column skali
 
             
-            
-            for x in range(0,len(cells)):   #setiap column
-                    if 'More info' not in cells[x].a.text:
+            for x in range(2,len(cells)):   #setiap column
                         companyList.append(cells[x].a.text.replace("\n", ' '))
-                        
                         nextSib = cells[x].a.nextSibling
                         strings= str(nextSib)
-                        
                         if len(strings) != 4:
                             combo.append(strings)
-                    
+            
+            withUrl=parser.findAll(text=' (')
+            witN = parser.findAll(text='\n(')
+
             for t in range(0,len(combo)):
-                        withUrl=parser.findAll(text=' (')
                         
                         if len(combo[t])<5:
                            total= t-count
-                           if total < len(withUrl):
-                               value=withUrl[total].nextSibling.text
-                               tickerList.append(value)
+                           total2=t-nourl+1
+                           if '\n(' not in combo[t]:
+                               if total < len(withUrl):
                                
+                                   value=withUrl[total].nextSibling.text
+                                   tickerList.append(value)
+                                   nourl+=1
+                                   
+                           elif '\n(' in combo[t]:
+                                   value=witN[total2].nextSibling.text
+
+                                   tickerList.append(value)
+                                   count+=1
+                                       
                                
                         else:
-                            tickerList.append(combo[t])
+                            tickerList.append(combo[t].replace("\n", ' '))
+                            nourl+=1
                             count+=1
-##
-##            for eachrow in companyList:
-##                company = eachrow
-##                
-##                if eachrow: # check if row empty
-##                        now = datetime.datetime.now()
-##                        cursor.execute('INSERT INTO companies(company_name,stock_tickers,company_sector,company_industry,updated_at)' \
-##                                      ' VALUES(%s,%s,%s,%s,%s)',(company,tickerList[countticker],sector, industry, now))
-##                        
-##                countticker+=1
-##                
-##            mydb.commit()
-            print "COMPANY \n\n"
-            print companyList
-            
+
+            for eachrow in companyList:
+                company = eachrow
+                
+                if eachrow: # check if row empty
+                        now = datetime.datetime.now()
+                        cursor.execute('INSERT INTO companies(company_name,stock_tickers,company_sector,company_industry,updated_at)' \
+                                      ' VALUES(%s,%s,%s,%s,%s)',(company,tickerList[countticker],sector, industry, now))
+                        
+                countticker+=1
+                
+            mydb.commit()
+            print industry +" companies done into db"
+####################################################################################################################################################
             
 
 

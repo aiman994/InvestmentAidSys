@@ -10,24 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170319103841) do
+ActiveRecord::Schema.define(version: 20170321193923) do
 
   create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "company_name"
     t.string   "stock_tickers"
-    t.string   "icompany_sector"
+    t.string   "company_sector",   null: false
     t.string   "company_industry"
     t.datetime "updated_at",       null: false
   end
 
   create_table "stock_historic_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "stock_tickers"
-    t.string "price_date"
-    t.float  "price_close",   limit: 24
-    t.float  "price_high",    limit: 24
-    t.float  "price_low",     limit: 24
-    t.float  "price_open",    limit: 24
-    t.float  "volume",        limit: 24
+    t.string   "stock_tickers"
+    t.string   "price_date"
+    t.float    "price_close",   limit: 24
+    t.float    "price_high",    limit: 24
+    t.float    "price_low",     limit: 24
+    t.float    "price_open",    limit: 24
+    t.float    "volume",        limit: 24
+    t.datetime "updated_at"
   end
 
   create_table "stock_industry", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
