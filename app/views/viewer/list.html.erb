@@ -17,5 +17,29 @@
 <br>
 <br>
 <h1>Viewer#company</h1>
-<p>Find me in app/views/viewer/company.html.erb</p>
-<a href="/views/analyzer/centralAnalysis.html">Analysis page</a>
+<%= will_paginate @company %>
+<table style="width: 80%; marginLeft:30px;">                         
+  <tr style="height: 50px">
+    <th>    </th>
+    <th>    </th> 
+    <th>    </th>     
+    <th>No. </th> 
+    <th>    </th>                     
+    <th>Company Name</th>
+    <th> Company Tickers  </th> 
+    
+  </tr>
+    <% @company.each do |company|  %> 
+  <tr>
+    <td>    </td>
+    <td>    </td>
+    <td>   </td>
+    <td><%= company.id %></td>
+    <td>   </td> 
+    <td><%= company.company_name %></td>
+    <td><a href="/views/analyzer/centralAnalysis/<%= company.stock_tickers%>"> <%= company.stock_tickers%></a></td>
+  </tr>
+
+<% end %>                  
+</table>               
+

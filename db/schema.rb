@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321193923) do
+ActiveRecord::Schema.define(version: 20170322144124) do
 
-  create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "company", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.string   "company_name"
     t.string   "stock_tickers"
-    t.string   "company_sector",   null: false
+    t.string   "company_sector"
     t.string   "company_industry"
     t.datetime "updated_at",       null: false
   end

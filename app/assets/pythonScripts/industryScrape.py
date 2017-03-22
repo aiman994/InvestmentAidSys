@@ -11,10 +11,13 @@ mydb = MySQLdb.connect(host='localhost',
     
 cursor = mydb.cursor()
 
-mydb.set_character_set('utf8')
+mydb.set_character_set('utf8mb4')
 cursor.execute('SET NAMES utf8mb4;')
+mydb.commit()
 cursor.execute('SET CHARACTER SET utf8mb4;')
+mydb.commit()
 cursor.execute('SET character_set_connection=utf8mb4;')
+mydb.commit()
 ## database connection##########################################################
 
 def getSectorList():
@@ -194,7 +197,7 @@ def getcompanyList(url,sector,industry):
                 
                 if eachrow: # check if row empty
                         now = datetime.datetime.now()
-                        cursor.execute('INSERT INTO companies(company_name,stock_tickers,company_sector,company_industry,updated_at)' \
+                        cursor.execute('INSERT INTO company(company_name,stock_tickers,company_sector,company_industry,updated_at)' \
                                       ' VALUES(%s,%s,%s,%s,%s)',(company,tickerList[countticker],sector, industry, now))
                         
                 countticker+=1

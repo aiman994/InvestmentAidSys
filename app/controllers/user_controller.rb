@@ -2,7 +2,7 @@ class UserController < ApplicationController
   def signup
   end
  def new
-        
+        @users= User.all
  end
     
   def user_params

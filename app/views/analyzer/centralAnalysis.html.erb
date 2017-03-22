@@ -14,7 +14,7 @@
             <li ><a href="/views/welcome/homepage.html">Home</a></li>
             <li><a href="/views/viewer/company.html">Companies</a></li>
             <li><a href="/views/viewer/news.html">News</a></li>
-            <li class="active"><a href="/views/welcome/about.html">About</a></li>
+            <li ><a href="/views/welcome/about.html">About</a></li>
             <li><a href="/views/session/login.html">Login</a></li>
           </ul>
 
@@ -23,17 +23,16 @@
 </head>
 <br>
 <br>
-<h1>Analyzer#centralAnalysis</h1>
-
-
+<h1>Analyzer#centralAnalysis page </h1>
 
 
 <div id="container" style="height: 400px; min-width: 310px"></div>
 <script type="text/javascript">
  $.getJSON('/views/analyzer/data', function (data) {
 	var processedData = [];
+  var name =  data[0].stock_tickers
        data.forEach(function(element){
-
+          
          var date = (element["price_date"]).split(", ");
         console.log(date);
          processedData.push(
@@ -55,10 +54,10 @@
                selected: 1
            },
            title: {
-               text: 'AAPL Stock Price'
+               text: name +' Stock Price'
            },
            series: [{
-               name: 'AAPL',
+               name: name,
                data: processedData,
                tooltip: {
                    valueDecimals: 2
@@ -69,3 +68,8 @@
    });
 
     </script>
+    <br>
+
+<%= @stdout %>
+<%= @ticker%>
+
