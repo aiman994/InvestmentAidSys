@@ -1,0 +1,7 @@
+<<<<<<< HEAD
+#!/usr/bin/env ruby
+=======
+#!/usr/bin/env ruby.exe
+>>>>>>> b5b8d16e79fff0e954da458cad9af177739ebb67
+ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
+load Gem.bin_path('bundler', 'bundle')
