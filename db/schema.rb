@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170321193923) do
 
   create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -20,9 +19,6 @@ ActiveRecord::Schema.define(version: 20170321193923) do
     t.string   "company_industry"
     t.datetime "updated_at",       null: false
   end
-=======
-ActiveRecord::Schema.define(version: 20170222165624) do
->>>>>>> b5b8d16e79fff0e954da458cad9af177739ebb67
 
   create_table "stock_historic_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "stock_tickers"
@@ -32,7 +28,6 @@ ActiveRecord::Schema.define(version: 20170222165624) do
     t.float    "price_low",     limit: 24
     t.float    "price_open",    limit: 24
     t.float    "volume",        limit: 24
-<<<<<<< HEAD
     t.datetime "updated_at"
   end
 
@@ -62,10 +57,6 @@ ActiveRecord::Schema.define(version: 20170222165624) do
     t.bigint "priceTobook"
     t.bigint "netProfitMargin"
     t.bigint "priceToFreecashFlow"
-=======
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
->>>>>>> b5b8d16e79fff0e954da458cad9af177739ebb67
   end
 
   create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -79,10 +70,6 @@ ActiveRecord::Schema.define(version: 20170222165624) do
     t.string   "password_digest"
     t.string   "user_Cntct"
     t.string   "user_email"
-<<<<<<< HEAD
-=======
-    t.datetime "created_at",      null: false
->>>>>>> b5b8d16e79fff0e954da458cad9af177739ebb67
     t.datetime "updated_at",      null: false
   end
 

@@ -31,7 +31,6 @@
 <div id="container" style="height: 400px; min-width: 310px"></div>
 <script type="text/javascript">
  $.getJSON('/views/analyzer/data', function (data) {
-<<<<<<< HEAD
 	var processedData = [];
        data.forEach(function(element){
 
@@ -68,46 +67,5 @@
 
        });
    });
-=======
-		var processedData = [];
-    data.forEach(function(element){
-       // var dateu= "Date.UTC("+ element["price_date"] +")"
-      processedData.push(
-      [
-        element["price_date"],
-        parseFloat(element["price_close"])
-      ]
-      );
-    });
-
-    Highcharts.setOptions({global: { useUTC: false } });
-    Highcharts.stockChart('container', {
-        
-
-        
-        rangeSelector: {
-            selected: 1
-        },
-        
-       
-       
-        title: {
-            text: 'AAPL Stock Price'
-        },
-         xAxis: {
-            type: 'datetime'
-        },
-
-        series: [{
-            name: 'AAPL',
-            data: processedData,
-            tooltip: {
-                valueDecimals: 2
-            }
-        }]
-        
-    });
-});
->>>>>>> b5b8d16e79fff0e954da458cad9af177739ebb67
 
     </script>
