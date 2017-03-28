@@ -35,20 +35,13 @@ $.getJSON('/views/analyzer/data', function (data) {
         dataLength = data.length,
        // var name =  String(data[0].stock_tickers)
         // set the allowed units for data grouping
-        groupingUnits = [[
-            'year',                         // unit name
-            [1]                             // allowed multiples
-        ], [
-            'month',
-            [1, 2, 3, 4,5,6]
-        ]],
-
+       
         i = 0;
 
     for (i; i < dataLength; i += 1) {
-
         ohlc.push([
-            data[i].price_date, // the date
+
+             parseInt(data[i].price_date), // the date
             data[i].price_open, // open
             data[i].price_high, // high
             data[i].price_low, // low
@@ -56,7 +49,7 @@ $.getJSON('/views/analyzer/data', function (data) {
         ]);
 
         volume.push([
-            data[i].price_date, // the date
+            parseInt(data[i].price_date), // the date
             data[i].volume // the volume
         ]);
     }
@@ -64,6 +57,9 @@ $.getJSON('/views/analyzer/data', function (data) {
 
     // create the chart
     Highcharts.stockChart('container', {
+        chart: {
+        width: 890
+    },
         plotOptions: {
          candlestick: {
                     color: 'red',
@@ -112,15 +108,12 @@ $.getJSON('/views/analyzer/data', function (data) {
             name: data[0].stock_tickers,
             data: ohlc
 
-
         }, {
             type: 'column',
             name: 'Volume',
             data: volume,
             yAxis: 1,
-            dataGrouping: {
-                units: groupingUnits
-            }
+           
         }]
     });
 });
