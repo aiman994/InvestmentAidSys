@@ -4,6 +4,7 @@ import datetime
 import sys
 stocks = sys.argv[1] 
 import MySQLdb
+from datetime import date
 
 mydb = MySQLdb.connect(host='localhost',
     user='root',
@@ -24,7 +25,10 @@ def pullData(stock):
             if len(splitLine) == 6:
                 if 'values' not in eachLine:
                     now = datetime.datetime.now()
-                    v1 = datetime.datetime.strptime(splitLine[0], '%Y%m%d').strftime('%Y, %m, %d')
+                    #d = datetime.datetime.strptime(splitLine[0], '%Y%m%d').strftime('%Y, %m, %d')
+                    date=  splitLine[0] + ' 00:00:00'
+                    dt = time.mktime(datetime.datetime.strptime(date, "%Y%m%d %H:%M:%S").timetuple())
+                    v1= int(round(dt*1000))
                     v2 = splitLine[1]
                     v3 = splitLine[2]
                     v4 = splitLine[3]

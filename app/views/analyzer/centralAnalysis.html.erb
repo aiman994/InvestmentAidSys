@@ -25,51 +25,107 @@
 <br>
 <h1>Analyzer#centralAnalysis page </h1>
 
-
 <div id="container" style="height: 400px; min-width: 310px"></div>
 <script type="text/javascript">
- $.getJSON('/views/analyzer/data', function (data) {
-	var processedData = [];
-  var name =  data[0].stock_tickers
-       data.forEach(function(element){
-          
-         var date = (element["price_date"]).split(", ");
-        console.log(date);
-         processedData.push(
-         [
-           Date.UTC(date[0], date[1]-1, date[2]),
-           parseFloat(element["price_close"])
-         ]
-         );
-       });
+$.getJSON('/views/analyzer/data', function (data) {
 
-    //   Highcharts.setOptions({global: { useUTC: false } });
-       Highcharts.stockChart('container', {
-           
-           chart: {
-               width: 900
-           },
+    // split the data set into ohlc and volume
+    var ohlc = [],
+        volume = [],
+        dataLength = data.length,
+       // var name =  String(data[0].stock_tickers)
+        // set the allowed units for data grouping
+        groupingUnits = [[
+            'year',                         // unit name
+            [1]                             // allowed multiples
+        ], [
+            'month',
+            [1, 2, 3, 4,5,6]
+        ]],
 
-           rangeSelector: {
-               selected: 1
-           },
-           title: {
-               text: name +' Stock Price'
-           },
-           series: [{
-               name: name,
-               data: processedData,
-               tooltip: {
-                   valueDecimals: 2
-               }
-           }]
+        i = 0;
 
-       });
-   });
+    for (i; i < dataLength; i += 1) {
 
+        ohlc.push([
+            data[i].price_date, // the date
+            data[i].price_open, // open
+            data[i].price_high, // high
+            data[i].price_low, // low
+            data[i].price_close// close
+        ]);
+
+        volume.push([
+            data[i].price_date, // the date
+            data[i].volume // the volume
+        ]);
+    }
+
+
+    // create the chart
+    Highcharts.stockChart('container', {
+        plotOptions: {
+         candlestick: {
+                    color: 'red',
+                    upColor: 'green'
+        }
+    },
+        rangeSelector: {
+            selected: 1
+        },
+
+        title: {
+            text: data[0].stock_tickers+' Stock Historical Data'
+        },
+
+        yAxis: [{
+            labels: {
+                align: 'right',
+                x: -3
+            },
+            title: {
+                text: 'OHLC'
+            },
+
+            height: '60%',
+            lineWidth: 2
+        }, {
+            labels: {
+                align: 'right',
+                x: -3
+            },
+            title: {
+                text: 'Volume'
+            },
+            top: '65%',
+            height: '35%',
+            offset: 0,
+            lineWidth: 2
+        }],
+
+        tooltip: {
+            split: true
+        },
+
+        series: [{
+            type: 'candlestick',
+            name: data[0].stock_tickers,
+            data: ohlc
+
+
+        }, {
+            type: 'column',
+            name: 'Volume',
+            data: volume,
+            yAxis: 1,
+            dataGrouping: {
+                units: groupingUnits
+            }
+        }]
+    });
+});
     </script>
     <br>
 
 <%= @stdout %>
 <%= @ticker%>
-
