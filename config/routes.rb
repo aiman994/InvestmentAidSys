@@ -29,7 +29,11 @@ Rails.application.routes.draw do
     
     get "/views/welcome/about.html", to: "welcome#about", as: "about"
     
-    get "/views/analyzer/data", to: "analyzer#for_graph", as: "for_graph"
+    #get "/views/analyzer/data/:tock", to: "analyzer#historic_data", as: "historic_data", :constraints => { :tock => /[^\/]+/ }
+
+    get "/views/analyzer/data", to: "analyzer#historic_data", as: "historic"
+
+    get "/views/analyzer/predict/:tick", to: "analyzer#predicted_data", as: "predicted_data" , :constraints => { :tick => /[^\/]+/ }
     
     get "/views/viewer/company.html", to: "viewer#list"
 

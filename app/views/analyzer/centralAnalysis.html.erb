@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/assets/css/session.scss">
 <link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-<script src="/assets/javascript/js/Highstock/highstock.js"></script>
+<script src="/assets/javascripts/js/Highstock/highstock.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://code.highcharts.com/stock/highstock.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -27,43 +27,22 @@
 
 <div id="container" style="height: 400px; min-width: 310px"></div>
 <script type="text/javascript">
-$.getJSON('/views/analyzer/data', function (data) {
 
-    // split the data set into ohlc and volume
-    var ohlc = [],
-        volume = [],
-        dataLength = data.length,
-       // var name =  String(data[0].stock_tickers)
-        // set the allowed units for data grouping
-       
-        i = 0;
-
-    for (i; i < dataLength; i += 1) {
-        ohlc.push([
-
-             parseInt(data[i].price_date), // the date
-            data[i].price_open, // open
-            data[i].price_high, // high
-            data[i].price_low, // low
-            data[i].price_close// close
-        ]);
-
-        volume.push([
-            parseInt(data[i].price_date), // the date
-            data[i].volume // the volume
-        ]);
-    }
+var seriesOptions = [],
+    seriesCounter = 0,
+    names = ['data', 'predict'];
 
 
-    // create the chart
-    Highcharts.stockChart('container', {
+function createChart() {
+
+      Highcharts.stockChart('container', {
         chart: {
         width: 890
     },
         plotOptions: {
          candlestick: {
-                    color: 'red',
-                    upColor: 'green'
+                color: 'red',
+                upColor: 'green'
         }
     },
         rangeSelector: {
@@ -103,22 +82,57 @@ $.getJSON('/views/analyzer/data', function (data) {
             split: true
         },
 
-        series: [{
-            type: 'candlestick',
-            name: data[0].stock_tickers,
-            data: ohlc
+        series: seriesOptions
+    });
+}
 
-        }, {
-            type: 'column',
-            name: 'Volume',
-            data: volume,
-            yAxis: 1,
-           
-        }]
+$.each(names, function (i, name) {
+
+    $.getJSON('/views/analyzer/'+name+'/'+ <%=ticker =>//# from controller
+        , function (data) {
+
+
+        if name=== 'data' {
+            var ohlc = [],
+        volume = [],
+        dataLength = data.length,
+       
+        i = 0;
+
+    for (i; i < dataLength; i += 1) {
+        ohlc.push([
+
+            parseInt(data[i].price_date), // the date
+            data[i].price_open, // open
+            data[i].price_high, // high
+            data[i].price_low, // low
+            data[i].price_close// close
+        ]);
+
+        volume.push([
+            parseInt(data[i].price_date), // the date
+            data[i].volume // the volume
+        ]);
+
+        seriesOptions[i] = {
+                name: name,
+                data: ohlc
+            };
+        }
+
+     }
+        // As we're loading the data asynchronously, we don't know what order it will arrive. So
+        // we keep a counter and create the chart when all the data is loaded.
+        seriesCounter += 1;
+
+        if (seriesCounter === names.length) {
+            createChart();
+        }
     });
 });
-    </script>
-    <br>
+
+</script>
+<br>
 
 <%= @stdout %>
 <%= @ticker%>
