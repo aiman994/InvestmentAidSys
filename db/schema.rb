@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406090056) do
+ActiveRecord::Schema.define(version: 20170416082551) do
 
   create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.string   "company_name"
@@ -21,12 +21,11 @@ ActiveRecord::Schema.define(version: 20170406090056) do
   end
 
   create_table "prediction_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
-    t.string   "stock_tickers"
-    t.float    "price_close",     limit: 24
-    t.float    "percentChange",   limit: 24
-    t.float    "predicted_price", limit: 24
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string "stock_tickers"
+    t.float  "price_close",     limit: 24
+    t.float  "percentChange",   limit: 24
+    t.float  "predicted_price", limit: 24
+    t.string "updated_at",                 null: false
   end
 
   create_table "stock_historic_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

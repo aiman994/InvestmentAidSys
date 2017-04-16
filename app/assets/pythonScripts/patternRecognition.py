@@ -5,6 +5,7 @@ import MySQLdb
 from pandas import DataFrame
 import pandas as pd
 import pandas.io.sql as psql
+import time
 
 ####################################################################
 
@@ -187,10 +188,6 @@ def currentPattern():
     patterntoReg.append(cp29)
     patterntoReg.append(cp30)
 
-    x=31
-    while x>0:
-        datearray.append(numpydate[-x])
-        x-=1
 ##############################################################################
 def patternReg():
     
@@ -252,13 +249,15 @@ def patternReg():
       
     
     now = datetime.datetime.now() #datetime.date.today().strftime("%Y-%B-%d")
-
+    dts = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    dt = time.mktime(datetime.datetime.strptime(str(dts), "%Y-%m-%d %H:%M:%S").timetuple())
+    dateupdate= int(round(dt*1000))
     if patfound==1:
        # now = datetime.datetime.now()
         avgpercentchange= avgpchange/len(plotpatAr)
         predicted_price= ((avgpercentchange/100)+1)*numpyMatrix[-1]
         cursor.execute('INSERT INTO prediction_data(stock_tickers,price_close,percentChange,predicted_price,updated_at)' \
-                                  ' VALUES(%s,%s,%s,%s,%s)',(numpystock[0],numpyMatrix[-1],avgpercentchange,predicted_price,now))
+                                  ' VALUES(%s,%s,%s,%s,%s)',(numpystock[0],numpyMatrix[-1],avgpercentchange,predicted_price,dateupdate))
         mydb.commit()
         cursor.close()
        

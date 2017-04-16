@@ -27,112 +27,144 @@
 
 <div id="container" style="height: 400px; min-width: 310px"></div>
 <script type="text/javascript">
+        var seriesOptions = [],
+            seriesCounter = 0,
+            stock_tickers = '';
+            names = ['data', 'predict'];
 
-var seriesOptions = [],
-    seriesCounter = 0,
-    names = ['data', 'predict'];
+        $.getJSON('/views/analyzer/data/ABT.AX', function(data) {
+            // set the allowed units for data grouping
+            var groupingUnits = [
+                [
+                  'week',                         // unit name
+                  [1]                             // allowed multiples
+                ],
+                [
+                  'month',
+                  [1, 2, 3, 4, 6]
+                ]
+            ];
 
-
-function createChart() {
-
-      Highcharts.stockChart('container', {
-        chart: {
-        width: 890
-    },
-        plotOptions: {
-         candlestick: {
-                color: 'red',
-                upColor: 'green'
-        }
-    },
-        rangeSelector: {
-            selected: 1
-        },
-
-        title: {
-            text: data[0].stock_tickers+' Stock Historical Data'
-        },
-
-        yAxis: [{
-            labels: {
-                align: 'right',
-                x: -3
-            },
-            title: {
-                text: 'OHLC'
-            },
-
-            height: '60%',
-            lineWidth: 2
-        }, {
-            labels: {
-                align: 'right',
-                x: -3
-            },
-            title: {
-                text: 'Volume'
-            },
-            top: '65%',
-            height: '35%',
-            offset: 0,
-            lineWidth: 2
-        }],
-
-        tooltip: {
-            split: true
-        },
-
-        series: seriesOptions
-    });
-}
-
-$.each(names, function (i, name) {
-
-    $.getJSON('/views/analyzer/'+name+'/'+ <%=ticker =>//# from controller
-        , function (data) {
-
-
-        if name=== 'data' {
             var ohlc = [],
-        volume = [],
-        dataLength = data.length,
-       
-        i = 0;
+                volume = [],
+                predicted_prices = [],
+                //Get records from each json node (stock, prediction)
+                stockList = data.stock,
+                predictionList = data.prediction;
 
-    for (i; i < dataLength; i += 1) {
-        ohlc.push([
+            stock_tickers = stockList[0].stock_tickers;
+            $.each(stockList, function (index, stock){
+              ohlc.push([
+                  parseInt(stock.price_date), // the date
+                  stock.price_open, // open
+                  stock.price_high, // high
+                  stock.price_low, // low
+                  stock.price_close // close
+              ]);
+              volume.push([
+                  parseInt(stock.price_date), // the date
+                  stock.volume // the volume
+              ]);
+            });
 
-            parseInt(data[i].price_date), // the date
-            data[i].price_open, // open
-            data[i].price_high, // high
-            data[i].price_low, // low
-            data[i].price_close// close
-        ]);
+            $.each(predictionList, function(index, prediction){
+              predicted_prices.push([
+                parseInt(prediction.updated_at)
+                prediction.predicted_price
+              ]);
+            })
 
-        volume.push([
-            parseInt(data[i].price_date), // the date
-            data[i].volume // the volume
-        ]);
-
-        seriesOptions[i] = {
-                name: name,
-                data: ohlc
-            };
-        }
-
-     }
-        // As we're loading the data asynchronously, we don't know what order it will arrive. So
-        // we keep a counter and create the chart when all the data is loaded.
-        seriesCounter += 1;
-
-        if (seriesCounter === names.length) {
+            seriesOptions = [
+              {
+                  type: 'spline',
+                  name: 'data',
+                  data: ohlc,
+                  dataGrouping: {
+                              units: groupingUnits
+                    }
+              },
+              {
+                  type: 'candlestick',
+                  name: 'data',
+                  data: ohlc,
+                  dataGrouping: {
+                      units: groupingUnits
+                  }
+              },
+              {
+                  type: 'column',
+                  name: 'Volume',
+                  data: volume,
+                  yAxis: 1,
+                  dataGrouping: {
+                              units: groupingUnits
+                    }
+              }
+            ];
             createChart();
-        }
-    });
-});
+        });
 
-</script>
+        function createChart() {
+            Highcharts.stockChart('container', {
+                chart: {
+                    width: 890
+                },
+                plotOptions: {
+                    candlestick: {
+                        color: 'red',
+                        upColor: 'green'
+                    }
+                },
+                rangeSelector: {
+                    selected: 2
+                },
+                xAxis: {
+                    type: 'datetime',
+                    dateTimeLabelFormats: { // don't display the dummy year
+                        month: '%e. %b',
+                        year: '%b'
+                    },
+                    title: {
+                        text: 'Date'
+                    }
+                },
+                title: {
+                    text:  stock_tickers + ' Stock Historical Data'
+                },
+                yAxis: [
+                  {
+                      labels: {
+                          align: 'right',
+                          x: -3
+                      },
+                      title: {
+                          text: 'OHLC'
+                      },
+                      height: '60%',
+                      lineWidth: 2
+                  },
+                  {
+                      labels: {
+                          align: 'right',
+                          x: -3
+                      },
+                      title: {
+                          text: 'Volume'
+                      },
+                      top: '65%',
+                      height: '35%',
+                      offset: 0,
+                      lineWidth: 2
+                  }
+                ],
+                series: seriesOptions
+            });
+        }
+ </script>
+
 <br>
 
-<%= @stdout %>
+std out technical analysis <%= @stdout %>
+<br>
+std out pattern <%= @stdout1%>
 <%= @ticker%>

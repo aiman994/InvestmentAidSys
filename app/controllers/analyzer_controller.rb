@@ -7,21 +7,20 @@ class AnalyzerController < ApplicationController
     
   end
     
-   	def historic_data
+      def historic_data
 
         stock_data = StockHistoricData.all
+        prediction = Prediction_Data.where("stock_tickers =?", params[:tick])
+        
         File.open("data.json", "w") do |f|
            f.write(stock_data.to_json)
         end
-        render json: stock_data #convert into json format
-    end
-
-    def predicted_data
-        prediction = Prediction_Data.where("stock_tickers =?", params[:tick])
+        
         File.open("predict.json", "w") do |f|
            f.write(prediction.to_json)
         end
-        render json: prediction #convert into json format
-        puts $id
-    end
+        
+        render json: {'stock' => stock_data, 'prediction' => prediction}.to_json #convert into json format
+      end
+
 end
