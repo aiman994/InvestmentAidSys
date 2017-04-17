@@ -2,15 +2,14 @@ class AnalyzerController < ApplicationController
   def centralAnalysis
   	
   	@stdout, stdeerr, status = Open3.capture3("python app/assets/pythonScripts/technicalAnalysis.py " + params[:id] )
-  	@ticker = params[:id]
+  	$ticker = params[:id]
     @stdout1, @stdeerr1, status1= Open3.capture3("python app/assets/pythonScripts/patternRecognition.py")
     
   end
-    
       def historic_data
 
         stock_data = StockHistoricData.all
-        prediction = Prediction_Data.where("stock_tickers =?", params[:tick])
+        prediction = Prediction_Data.where("stock_tickers =?", $ticker)
         
         File.open("data.json", "w") do |f|
            f.write(stock_data.to_json)

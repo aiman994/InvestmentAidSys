@@ -32,7 +32,7 @@
             stock_tickers = '';
             names = ['data', 'predict'];
 
-        $.getJSON('/views/analyzer/data/ABT.AX', function(data) {
+        $.getJSON('/views/analyzer/data/', function(data) {
             // set the allowed units for data grouping
             var groupingUnits = [
                 [
@@ -69,7 +69,7 @@
 
             $.each(predictionList, function(index, prediction){
               predicted_prices.push([
-                parseInt(prediction.updated_at)
+                parseInt(prediction.updated_at),
                 prediction.predicted_price
               ]);
             })
@@ -77,15 +77,20 @@
             seriesOptions = [
               {
                   type: 'spline',
-                  name: 'data',
-                  data: ohlc,
+                  name: 'predicted price',
+                  data: predicted_prices,
+                  color: '#FF0000',
                   dataGrouping: {
                               units: groupingUnits
+
+                    },
+                   marker: {
+                    enabled: true
                     }
               },
               {
                   type: 'candlestick',
-                  name: 'data',
+                  name: 'Past price',
                   data: ohlc,
                   dataGrouping: {
                       units: groupingUnits

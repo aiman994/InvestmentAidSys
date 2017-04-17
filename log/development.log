@@ -15745,3 +15745,1021 @@ puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
 puma (3.8.1) lib/puma/server.rb:425:in `process_client'
 puma (3.8.1) lib/puma/server.rb:289:in `block in run'
 puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/centralAnalysis/ABT.AX" for 127.0.0.1 at 2017-04-16 03:51:28 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (21.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"ABT.AX"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 10539ms (Views: 1792.3ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/ABT.AX" for 127.0.0.1 at 2017-04-16 03:51:41 -0700
+Processing by AnalyzerController#historic_data as JSON
+  Parameters: {"tick"=>"ABT.AX"}
+  [1m[36mStockHistoricData Load (3.4ms)[0m  [1m[34mSELECT `stock_historic_data`.* FROM `stock_historic_data`[0m
+  [1m[36mPrediction_Data Load (21.9ms)[0m  [1m[34mSELECT `prediction_data`.* FROM `prediction_data` WHERE (stock_tickers ='ABT.AX')[0m
+Completed 200 OK in 451ms (Views: 0.2ms | ActiveRecord: 63.9ms)
+
+
+Started GET "/views/analyzer/centralAnalysis/ABT.AX" for 127.0.0.1 at 2017-04-16 03:52:38 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"ABT.AX"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 6877ms (Views: 128.9ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/ABT.AX" for 127.0.0.1 at 2017-04-16 03:52:46 -0700
+Processing by AnalyzerController#historic_data as JSON
+  Parameters: {"tick"=>"ABT.AX"}
+  [1m[36mStockHistoricData Load (36.3ms)[0m  [1m[34mSELECT `stock_historic_data`.* FROM `stock_historic_data`[0m
+  [1m[36mPrediction_Data Load (0.4ms)[0m  [1m[34mSELECT `prediction_data`.* FROM `prediction_data` WHERE (stock_tickers ='ABT.AX')[0m
+Completed 200 OK in 182ms (Views: 0.1ms | ActiveRecord: 36.6ms)
+
+
+Started GET "/views/analyzer/centralAnalysis/ABT.AX" for 127.0.0.1 at 2017-04-16 03:58:13 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"ABT.AX"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 6885ms (Views: 71.2ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/ABT.AX" for 127.0.0.1 at 2017-04-16 03:58:21 -0700
+Processing by AnalyzerController#historic_data as JSON
+  Parameters: {"tick"=>"ABT.AX"}
+  [1m[36mStockHistoricData Load (50.6ms)[0m  [1m[34mSELECT `stock_historic_data`.* FROM `stock_historic_data`[0m
+  [1m[36mPrediction_Data Load (19.6ms)[0m  [1m[34mSELECT `prediction_data`.* FROM `prediction_data` WHERE (stock_tickers ='ABT.AX')[0m
+Completed 200 OK in 249ms (Views: 0.3ms | ActiveRecord: 70.2ms)
+
+
+Started GET "/views/analyzer/centralAnalysis/ABT.AX" for 127.0.0.1 at 2017-04-16 04:00:03 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"ABT.AX"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 6385ms (Views: 60.0ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/viewer/company.html" for 127.0.0.1 at 2017-04-16 04:06:20 -0700
+Processing by ViewerController#list as HTML
+  Rendering viewer/list.html.erb within layouts/application
+  [1m[35m (213.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `companies`[0m
+  [1m[36mCompany Load (23.4ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` LIMIT 30 OFFSET 0[0m
+  Rendered viewer/list.html.erb within layouts/application (665.2ms)
+Completed 200 OK in 805ms (Views: 327.9ms | ActiveRecord: 411.6ms)
+
+
+Started GET "/views/analyzer/centralAnalysis/ABT.AX" for 127.0.0.1 at 2017-04-16 04:06:47 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"ABT.AX"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 6945ms (Views: 42.5ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/" for 127.0.0.1 at 2017-04-16 04:06:55 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/views/analyzer/data"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/aiman/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb
+  Rendering /home/aiman/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /home/aiman/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (3.9ms)
+  Rendered /home/aiman/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (16.2ms)
+Started GET "/views/analyzer/centralAnalysis/ABT.AX" for 127.0.0.1 at 2017-04-16 04:08:14 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"ABT.AX"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 7027ms (Views: 47.3ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/" for 127.0.0.1 at 2017-04-16 04:08:22 -0700
+Processing by AnalyzerController#historic_data as JSON
+  [1m[36mStockHistoricData Load (3.6ms)[0m  [1m[34mSELECT `stock_historic_data`.* FROM `stock_historic_data`[0m
+  [1m[36mPrediction_Data Load (0.4ms)[0m  [1m[34mSELECT `prediction_data`.* FROM `prediction_data` WHERE (stock_tickers ='ABT.AX')[0m
+Completed 200 OK in 206ms (Views: 0.2ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/views/viewer/company.html" for 127.0.0.1 at 2017-04-16 04:08:58 -0700
+Processing by ViewerController#list as HTML
+  Rendering viewer/list.html.erb within layouts/application
+  [1m[35m (13.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `companies`[0m
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` LIMIT 30 OFFSET 0[0m
+  Rendered viewer/list.html.erb within layouts/application (190.0ms)
+Completed 200 OK in 320ms (Views: 190.5ms | ActiveRecord: 106.8ms)
+
+
+Started GET "/views/analyzer/centralAnalysis/AFPO.L" for 127.0.0.1 at 2017-04-16 04:09:01 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"AFPO.L"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 6778ms (Views: 62.9ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/" for 127.0.0.1 at 2017-04-16 04:09:09 -0700
+Processing by AnalyzerController#historic_data as JSON
+  [1m[36mStockHistoricData Load (0.8ms)[0m  [1m[34mSELECT `stock_historic_data`.* FROM `stock_historic_data`[0m
+  [1m[36mPrediction_Data Load (1.4ms)[0m  [1m[34mSELECT `prediction_data`.* FROM `prediction_data` WHERE (stock_tickers ='AFPO.L')[0m
+Completed 200 OK in 146ms (Views: 0.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/views/analyzer/centralAnalysis/AFPO.L" for 127.0.0.1 at 2017-04-16 04:40:03 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"AFPO.L"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 19226ms (Views: 220.7ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/" for 127.0.0.1 at 2017-04-16 04:40:25 -0700
+Processing by AnalyzerController#historic_data as JSON
+  [1m[36mStockHistoricData Load (9.2ms)[0m  [1m[34mSELECT `stock_historic_data`.* FROM `stock_historic_data`[0m
+  [1m[36mPrediction_Data Load (0.9ms)[0m  [1m[34mSELECT `prediction_data`.* FROM `prediction_data` WHERE (stock_tickers ='AFPO.L')[0m
+Completed 200 OK in 241ms (Views: 0.3ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/views/viewer/company.html" for 127.0.0.1 at 2017-04-16 04:40:50 -0700
+Processing by ViewerController#list as HTML
+  Rendering viewer/list.html.erb within layouts/application
+  [1m[35m (20.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `companies`[0m
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` LIMIT 30 OFFSET 0[0m
+  Rendered viewer/list.html.erb within layouts/application (110.7ms)
+Completed 200 OK in 247ms (Views: 202.4ms | ActiveRecord: 21.2ms)
+
+
+Started GET "/views/analyzer/centralAnalysis/ABT.AX" for 127.0.0.1 at 2017-04-16 04:40:52 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"ABT.AX"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 6669ms (Views: 73.7ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/" for 127.0.0.1 at 2017-04-16 04:41:00 -0700
+Processing by AnalyzerController#historic_data as JSON
+  [1m[36mStockHistoricData Load (7.4ms)[0m  [1m[34mSELECT `stock_historic_data`.* FROM `stock_historic_data`[0m
+  [1m[36mPrediction_Data Load (0.4ms)[0m  [1m[34mSELECT `prediction_data`.* FROM `prediction_data` WHERE (stock_tickers ='ABT.AX')[0m
+Completed 200 OK in 195ms (Views: 0.2ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/views/analyzer/centralAnalysis/ABT.AX" for 127.0.0.1 at 2017-04-16 04:43:30 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"ABT.AX"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 6541ms (Views: 62.9ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/centralAnalysis/ABT.AX" for 127.0.0.1 at 2017-04-16 04:44:10 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"ABT.AX"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 10330ms (Views: 70.3ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/" for 127.0.0.1 at 2017-04-16 04:44:21 -0700
+Processing by AnalyzerController#historic_data as JSON
+  [1m[36mStockHistoricData Load (35.1ms)[0m  [1m[34mSELECT `stock_historic_data`.* FROM `stock_historic_data`[0m
+  [1m[36mPrediction_Data Load (0.4ms)[0m  [1m[34mSELECT `prediction_data`.* FROM `prediction_data` WHERE (stock_tickers ='ABT.AX')[0m
+Completed 200 OK in 207ms (Views: 0.2ms | ActiveRecord: 35.5ms)
+
+
+Started GET "/views/viewer/company.html" for 127.0.0.1 at 2017-04-16 04:45:06 -0700
+Processing by ViewerController#list as HTML
+  Rendering viewer/list.html.erb within layouts/application
+  [1m[35m (8.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `companies`[0m
+  [1m[36mCompany Load (4.8ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` LIMIT 30 OFFSET 0[0m
+  Rendered viewer/list.html.erb within layouts/application (58.6ms)
+Completed 200 OK in 174ms (Views: 157.2ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/views/analyzer/centralAnalysis/AFPO.L" for 127.0.0.1 at 2017-04-16 04:45:10 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"AFPO.L"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 6473ms (Views: 64.8ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/" for 127.0.0.1 at 2017-04-16 04:45:17 -0700
+Processing by AnalyzerController#historic_data as JSON
+  [1m[36mStockHistoricData Load (1.2ms)[0m  [1m[34mSELECT `stock_historic_data`.* FROM `stock_historic_data`[0m
+  [1m[36mPrediction_Data Load (3.7ms)[0m  [1m[34mSELECT `prediction_data`.* FROM `prediction_data` WHERE (stock_tickers ='AFPO.L')[0m
+Completed 200 OK in 188ms (Views: 0.2ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/views/analyzer/centralAnalysis/ABT.AX" for 127.0.0.1 at 2017-04-16 04:47:05 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"ABT.AX"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 6689ms (Views: 108.6ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/" for 127.0.0.1 at 2017-04-16 04:47:12 -0700
+Processing by AnalyzerController#historic_data as JSON
+  [1m[36mStockHistoricData Load (1.6ms)[0m  [1m[34mSELECT `stock_historic_data`.* FROM `stock_historic_data`[0m
+  [1m[36mPrediction_Data Load (0.5ms)[0m  [1m[34mSELECT `prediction_data`.* FROM `prediction_data` WHERE (stock_tickers ='ABT.AX')[0m
+Completed 200 OK in 197ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/views/analyzer/centralAnalysis/ABT.AX" for 127.0.0.1 at 2017-04-16 19:03:44 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"ABT.AX"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (42.4ms)
+Completed 200 OK in 18820ms (Views: 371.8ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/" for 127.0.0.1 at 2017-04-16 19:04:07 -0700
+Processing by AnalyzerController#historic_data as JSON
+  [1m[36mStockHistoricData Load (18.0ms)[0m  [1m[34mSELECT `stock_historic_data`.* FROM `stock_historic_data`[0m
+  [1m[36mPrediction_Data Load (104.5ms)[0m  [1m[34mSELECT `prediction_data`.* FROM `prediction_data` WHERE (stock_tickers ='ABT.AX')[0m
+Completed 200 OK in 232ms (Views: 1.0ms | ActiveRecord: 122.5ms)
+
+
+Started GET "/views/analyzer/centralAnalysis/ABT.AX" for 127.0.0.1 at 2017-04-16 19:04:39 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"ABT.AX"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 8268ms (Views: 68.7ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/" for 127.0.0.1 at 2017-04-16 19:04:48 -0700
+Processing by AnalyzerController#historic_data as JSON
+  [1m[36mStockHistoricData Load (21.3ms)[0m  [1m[34mSELECT `stock_historic_data`.* FROM `stock_historic_data`[0m
+  [1m[36mPrediction_Data Load (0.5ms)[0m  [1m[34mSELECT `prediction_data`.* FROM `prediction_data` WHERE (stock_tickers ='ABT.AX')[0m
+Completed 200 OK in 180ms (Views: 0.2ms | ActiveRecord: 21.9ms)
+
+
+Started GET "/views/viewer/company.html" for 127.0.0.1 at 2017-04-16 19:05:07 -0700
+Processing by ViewerController#list as HTML
+  Rendering viewer/list.html.erb within layouts/application
+  [1m[35m (47.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `companies`[0m
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  `companies`.* FROM `companies` LIMIT 30 OFFSET 0[0m
+  Rendered viewer/list.html.erb within layouts/application (57.9ms)
+Completed 200 OK in 204ms (Views: 68.6ms | ActiveRecord: 48.1ms)
+
+
+Started GET "/views/analyzer/centralAnalysis/ABT.AX" for 127.0.0.1 at 2017-04-16 19:05:10 -0700
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"ABT.AX"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 6254ms (Views: 56.9ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/" for 127.0.0.1 at 2017-04-16 19:05:17 -0700
+Processing by AnalyzerController#historic_data as JSON
+  [1m[36mStockHistoricData Load (19.6ms)[0m  [1m[34mSELECT `stock_historic_data`.* FROM `stock_historic_data`[0m
+  [1m[36mPrediction_Data Load (0.4ms)[0m  [1m[34mSELECT `prediction_data`.* FROM `prediction_data` WHERE (stock_tickers ='ABT.AX')[0m
+Completed 200 OK in 220ms (Views: 0.2ms | ActiveRecord: 20.1ms)
+
+
+Started GET "/views/analyzer/centralAnalysis/ABT.AX" for 127.0.0.1 at 2017-04-17 10:07:19 +0800
+Processing by AnalyzerController#centralAnalysis as HTML
+  Parameters: {"id"=>"ABT.AX"}
+  Rendering analyzer/centralAnalysis.html.erb within layouts/application
+  Rendered analyzer/centralAnalysis.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 12754ms (Views: 238.9ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/javascripts/js/Highstock/highstock.js"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.0.2) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.0.2) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/views/analyzer/data/" for 127.0.0.1 at 2017-04-17 10:07:34 +0800
+Processing by AnalyzerController#historic_data as JSON
+  [1m[36mStockHistoricData Load (17.8ms)[0m  [1m[34mSELECT `stock_historic_data`.* FROM `stock_historic_data`[0m
+  [1m[36mPrediction_Data Load (73.8ms)[0m  [1m[34mSELECT `prediction_data`.* FROM `prediction_data` WHERE (stock_tickers ='ABT.AX')[0m
+Completed 200 OK in 379ms (Views: 0.3ms | ActiveRecord: 91.5ms)
+
+

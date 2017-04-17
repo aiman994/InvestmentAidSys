@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     
     #get "/views/analyzer/data/:tock", to: "analyzer#historic_data", as: "historic_data", :constraints => { :tock => /[^\/]+/ }
 
-    get "/views/analyzer/data/:tick", to: "analyzer#historic_data", as: "historic" , :constraints => { :tick => /[^\/]+/ }
+    get "/views/analyzer/data/", to: "analyzer#historic_data", as: "historic" , :constraints => { :tick => /[^\/]+/ }
     
     get "/views/viewer/company.html", to: "viewer#list"
 
