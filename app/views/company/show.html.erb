@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="/assets/css/session.scss">
+<link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<head> <div><nav class="navbar navbar-inverse navbar-fixed-top">
+        <a class="navbar-brand" href="#">Investment Aid System</a>
+        <ul class="nav navbar-nav">
+            <li ><a href="/views/welcome/homepage.html">Home</a></li>
+            <li class="active"><a href="/views/applicaton/company.html">Companies</a></li>
+            <li><a href="/views/viewer/news.html">News</a></li>
+            <li ><a href="/views/welcome/about.html">About</a></li>
+            <li><a href="/views/session/login.html">Login</a></li>
+          </ul>
+
+        </nav>
+    </div>
+</head>
+<br>
+<br>
+<h1></h1>
+
+
+<%= form_tag(companies_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Company" %>
+<%= submit_tag "Search" %>
+<% end %>
+
+
+
+<% if @companies.present? %>
+		<table style="width: 80%; marginLeft:30px;">                         
+		  <tr style="height: 50px">
+		    <th>    </th>
+		    <th>    </th> 
+		    <th>    </th>     
+		    <th>No. </th> 
+		    <th>    </th>                     
+		    <th>Company Name</th>
+		    <th> Company Tickers  </th> 
+		    
+		  </tr>
+		    <% @companies.each do |company|  %> 
+		  <tr>
+		    <td>    </td>
+		    <td>    </td>
+		    <td>   </td>
+		    <td><%= company.id %></td>
+		    <td>   </td> 
+		    <td><%= company.company_name %></td>
+		    <td><a href="/views/analyzer/centralAnalysis/<%= company.stock_tickers%>"> <%= company.stock_tickers%></a></td>
+		  </tr>
+		<% end %>                  
+		</table>       
+		
+<% else %>
+	 <%= render 'shared/search_view' %>
+     <%= will_paginate @company %>
+	  	<table style="width: 80%; marginLeft:30px;">                         
+			  <tr style="height: 50px">
+			    <th>    </th>
+			    <th>    </th> 
+			    <th>    </th>     
+			    <th>No. </th> 
+			    <th>    </th>                     
+			    <th>Company Name</th>
+			    <th> Company Tickers  </th> 
+			    
+			  </tr>
+			    <% @company.each do |company|  %> 
+			  <tr>
+			    <td>    </td>
+			    <td>    </td>
+			    <td>   </td>
+			    <td><%= company.id %></td>
+			    <td>   </td> 
+			    <td><%= company.company_name %></td>
+			    <td><a href="/views/analyzer/centralAnalysis/<%= company.stock_tickers%>"> <%= company.stock_tickers%></a></td>
+			  </tr>
+			<% end %>                  
+			</table>  
+<% end %>
+

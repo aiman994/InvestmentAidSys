@@ -1,11 +1,23 @@
 <head>
-<title> Investment Aid System</title>
-</head>
-<link rel="stylesheet" href="/assets/css/session.scss">
-<link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-<body background="/assets/background.png"  style="background-repeat:no-repeat;background-size:cover;">
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+  <title> Investment Aid System</title>
+  <link rel="stylesheet" href="/assets/css/session.scss">
+  <link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <style type="text/css">
+
+    input, textarea, select, .uneditable-input {
+      border: 1px solid #bbb;
+      width: 100%;
+      margin-bottom: 15px;
+      @include box_sizing;
+    }
+
+    input {
+      height: auto !important;
+    }
+  </style>
+  
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <a class="navbar-brand" href="#">Investment Aid System</a>
         <ul class="nav navbar-nav">
             <li ><a href="/views/welcome/homepage.html">Home</a></li>
@@ -14,36 +26,38 @@
             <li><a href="/views/welcome/about.html">About</a></li>
             <li class="active"><a href="/views/session/login.html">Login</a></li>
           </ul>
-
     </nav>
+
+</head>
+
+<body background="/assets/background.png"  style="background-repeat:no-repeat;background-size:cover;">
+        
    <div class="login">
 		<div class="login-screen">
-			<div class="app-title">
-				<img src="/assets/logo.png" width="249" >
-			</div>
-            <div> <h2> </h2></div>
+  		<div class="app-title">
+  			<img src="/assets/logo.png" width="249" >
+  		</div>
+      <div>
+        <h2> 
+        </h2>
+      </div>
 
 			<div class="login-form">
-                <form accept-charset="UTF-8" action="/login" method="post">
-                     <input name="utf8" type="hidden" value="&#x2713;" />
-					 <input name="authenticity_token" type="hidden"
-					         value="NNb6+J/j46LcrgYUC60wQ2titMuJQ5lLqyAbnbAUkdo=" />
-				<div class="control-group">
-				<input type="text" class="login-field" value="" placeholder="User ID" id="session_userId" name = "session[userId]">
-				<label class="login-field-icon fui-user" for="session_userId"></label>
-				</div>
-
-				<div class="control-group">
-				<input type="password" class="login-field" value="" placeholder="Password" id="session_password_digest" name ="session[password_digest]">
-				<label class="login-field-icon fui-lock" for="session_password_digest"></label>
-				</div>
-
-                
-                     <input class="btn-logins" name="commit" type="submit" value="Log in" />
-                </form>
-                
-				<a class="login-link" href="#">Forgot your password?</a>
-			</div>
-		</div>
-</div>
+          <form accept-charset="UTF-8" action="/login" method="post">
+            <input name="utf8" type="hidden" value="&#x2713;" />
+  					<input name="authenticity_token" type="hidden" value="NNb6+J/j46LcrgYUC60wQ2titMuJQ5lLqyAbnbAUkdo="/>
+  				  <div class="control-group">
+      				<input type="text" class="login-field" value="" placeholder="Email" id="session_user_email" name = "session[user_email]">
+      				<label class="login-field-icon fui-user" for="session_userId"></label>
+    				</div>
+    				<div class="control-group">
+      				<input type="password" class="login-field" value="" placeholder="Password" id="session_password_digest" name ="session[password_digest]">
+      				<label class="login-field-icon fui-lock" for="session_password_digest"></label>
+  				  </div>    
+            <input class="btn-logins" name="commit" type="submit" value="Log in" />
+          </form>   
+  				<a class="login-link" href="#">Forgot your password?</a>
+  				<a class="login-link" href="#">Don't have an account?Sign up</a> 
+		  </div>
+  </div>
 </body>

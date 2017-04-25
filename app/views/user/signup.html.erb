@@ -1,2 +1,51 @@
-<h1>User#signup</h1>
-<p>Find me in app/views/user/signup.html.erb</p>
+<head>
+ <title>Sign Up | Investment Aid System</title>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <a class="navbar-brand" href="#">Investment Aid System</a>
+        <ul class="nav navbar-nav">
+            <li ><a href="/views/welcome/homepage.html">Home</a></li>
+            <li><a href="/views/viewer/company.html">Companies</a></li>
+            <li><a href="/views/viewer/news.html">News</a></li>
+            <li><a href="/views/welcome/about.html">About</a></li>
+            <li class="active"><a href="/views/session/login.html">Login</a></li>
+        </ul>
+
+    </nav>
+
+</head>
+    <link rel="stylesheet" href="/assets/css/session.scss">
+    <link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<body background="/assets/background.png">
+    <br>
+    <br>
+       
+    <% provide(:title, 'Sign up') %>
+    <h1 align="center"><span class="label label-warning">Sign up</span></h1>
+        <div class= "login" >
+            <div class="login-screen" >
+                <div class="row">
+                  <div class="col-md-7">
+                    <%= form_for(@user) do |f| %>
+                      <%= render 'shared/error_messages' %>
+
+                      <%= f.label :userFname, "Full Name"  %>
+                      <%= f.text_field :userFname  %>
+                      <br>
+                      <%= f.label :user_Cntct, "Contact Number"%>
+                      <%= f.text_field :user_Cntct %>
+                       <br>
+                      <%= f.label :user_email, "Email"%>
+                      <%= f.email_field :user_email  %>
+                       <br>
+                        <p><%= f.label :password_digest, "Password" %>
+                        <%= f.password_field :password_digest %></p>
+
+                       <br><br>
+                      <%= f.submit "Create my account", class: "btn btn-primary" %>
+                    <% end %>
+                  </div>
+                </div>
+            </div>
+        </div>
+</body>
