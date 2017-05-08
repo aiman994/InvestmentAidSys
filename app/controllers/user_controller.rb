@@ -10,8 +10,7 @@ class UserController < ApplicationController
 
   	if @user.save
       log_in @user
-  		flash[:success] = "Welcome to the Sample App!"
-  		render 'welcome/homepage'
+  		render 'welcome/homepage', :notice => "Thank you for signing up ! login to continue" 
     else
       render 'signup'
     end

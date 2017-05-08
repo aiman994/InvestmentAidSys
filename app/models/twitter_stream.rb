@@ -1,0 +1,2 @@
+class TwitterStream < ApplicationRecord
+end

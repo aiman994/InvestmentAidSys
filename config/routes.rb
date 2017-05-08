@@ -20,12 +20,11 @@ Rails.application.routes.draw do
     post '/users' => 'user#create'
     get '/users' => 'user#create'
 
-    get    '/log_in',   to: 'sessions#new'
-    post   '/log_in',   to: 'sessions#create'
-    delete '/log_out',  to: 'sessions#destroy'
+    get    '/log_in',   to: 'session#create'
+    post   '/log_in',   to: 'session#create'
+    delete '/log_out',  to: 'session#destroy'
 
     
-
     get 'session/login'
     get 'welcome/homepage'
     

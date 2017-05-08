@@ -1,7 +1,7 @@
 class AnalyzerController < ApplicationController
   def centralAnalysis
   	
-  	@stdout, stdeerr, status = Open3.capture3("python app/assets/pythonScripts/technicalAnalysis.py " + params[:id] )
+  	@stdout, stdeerr, status = Open3.capture3("python app/assets/pythonScripts/technicalAnalysis.py" + params[:id] )
   	$ticker = params[:id]
     @stdout1, @stdeerr1, status1= Open3.capture3("python app/assets/pythonScripts/patternRecognition.py")
     

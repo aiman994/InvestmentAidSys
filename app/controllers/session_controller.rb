@@ -1,22 +1,21 @@
 class SessionController < ApplicationController
-skip_before_filter  :verify_authenticity_token 
+skip_before_filter  :verify_authenticity_token
     
     def login
-       
+      
     end
 
     def new
-        
+       
     end
+
     def create 
-        user = User.find_by(user_email: params[:session][:user_email])
+         user = User.find_by(user_email: params[:session][:user_email])
         if user && user.authenticate(params[:session][:password_digest])
-            flash[:success] = "You have successfully logged in"
-            log_in user
-            redirect_to 'welcome/homepage'
+            session[:user_id] = user.userFname
+            render 'welcome/homepage' ,:notice => "Logged in!!"
         else
-            flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
-            render 'new'
+            render 'welcome/about',:notice => "sorry unknown combination of email and password"
         end
     end
     
@@ -26,7 +25,7 @@ skip_before_filter  :verify_authenticity_token
     end
     
     def destroy
-        session[:user_email] = nil
+        session[:user_id] = nil
         flash[:success] = "You have logged out"
         redirect_to root_path
     end
