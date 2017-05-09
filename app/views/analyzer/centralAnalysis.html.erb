@@ -7,8 +7,11 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<head> <div><nav class="navbar navbar-inverse navbar-fixed-top">
+<head> 
+    <div><nav class="navbar navbar-inverse navbar-fixed-top">
         <a class="navbar-brand" href="#">Investment Aid System</a>
         <ul class="nav navbar-nav">
             <li ><a href="/views/welcome/homepage.html">Home</a></li>
@@ -20,6 +23,14 @@
 
         </nav>
     </div>
+
+    <style type="text/css">
+        .column {
+            width: 33%;
+            word-wrap: break-word;
+            font-size: 12px;
+        }
+    </style></style>
 </head>
 <br>
 <br>
@@ -32,13 +43,33 @@
     <div class="container">
         <h3>News</h3>
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#"><img alt="Brand" src="/assets/Twitter-logo.jpg" width="17" height="17">
+          <li class="active"><a data-toggle="tab" href="#tweet"><img alt="Brand" src="/assets/Twitter-logo.jpg" width="17" height="17">
                  Twitter</a>
           </li>
-          <li><a href="#"><img alt="Brand" src="/assets/bernama.png" width="17" height="17">  Bernama</a></li>
-          <li><a href="#"><img alt="Brand" src="/assets/fbLogo.png" width="17" height="17">  Facebook</a></li>
+          <li><a data-toggle="tab" href="#bernama"><img alt="Brand" src="/assets/bernama.png" width="17" height="17">  Bernama</a></li>
+          <li><a data-toggle="tab" href="#fb"><img alt="Brand" src="/assets/fbLogo.png" width="17" height="17">  Facebook</a></li>
         </ul>
         <br>
+
+        <div class="tab-content">
+            <div id="tweet" class="column tab-pane fade in active">
+              <% @tweets.each do |story| %>
+                <div class="well">
+                  <h4><img alt="Brand" src=<%= story.profile_pic_url %> width="30" height="30"> @<%= story.username %></h4>
+                  <p><%= story.tweets %></p>
+                </div>
+              <% end %>
+            </div>
+            <div id="bernama" class="tab-pane fade">
+              
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div id="fb" class="tab-pane fade">
+              <h3>Menu 2</h3>
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </div>
@@ -400,6 +431,8 @@
  </script>
 
 <br>
+<p></p>
+
 
 std out technical analysis <%= @stdout %>
 <br>

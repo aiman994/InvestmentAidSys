@@ -3,6 +3,7 @@ from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
 import json
 import MySQLdb
+import sys
 
 mydb = MySQLdb.connect(host='localhost',
     user='root',
@@ -18,7 +19,7 @@ mydb.commit()
 cursor.execute('SET character_set_connection=utf8mb4;')
 mydb.commit()
 
-stock="AAPL"
+stock = "AAPL" 
 #consumer key, consumer secret, access token, access secret.
 ckey="MvtrEOkP6L1zzCEKFHiBBiFAL"
 csecret="oAreNlEHaOzSkqCplqezlL4FnINtGRHv8a7wdzB3hrkYHURobj"
@@ -47,4 +48,4 @@ auth = OAuthHandler(ckey, csecret)
 auth.set_access_token(atoken, asecret)
 
 twitterStream = Stream(auth, listener())
-twitterStream.filter(track=[stock])
+twitterStream.filter(track=[stock], async=True)
