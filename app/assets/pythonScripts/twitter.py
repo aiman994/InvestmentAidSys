@@ -21,10 +21,10 @@ mydb.commit()
 
 stock = "AAPL" 
 #consumer key, consumer secret, access token, access secret.
-ckey="MvtrEOkP6L1zzCEKFHiBBiFAL"
-csecret="oAreNlEHaOzSkqCplqezlL4FnINtGRHv8a7wdzB3hrkYHURobj"
-atoken="859216909-jpy6SKs1SB2VzxcIGx4UCWs8L4D2jeP8rloth2m8"
-asecret="H3dhGUc9LADNBkhdHwFPmjKcTMGYZSb0jJoZh82evnwZa"
+ckey="xxxxxx"
+csecret="x"
+atoken="x"
+asecret="x"
 
 class listener(StreamListener):
     def on_data(self, data):
