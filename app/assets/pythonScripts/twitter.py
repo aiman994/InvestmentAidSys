@@ -4,6 +4,8 @@ from tweepy.streaming import StreamListener
 import json
 import MySQLdb
 import sys
+import datetime
+stock=sys.argv[1] 
 
 mydb = MySQLdb.connect(host='localhost',
     user='root',
@@ -18,14 +20,12 @@ cursor.execute('SET CHARACTER SET utf8mb4;')
 mydb.commit()
 cursor.execute('SET character_set_connection=utf8mb4;')
 mydb.commit()
-
-stock = "AAPL" 
+ 
 #consumer key, consumer secret, access token, access secret.
 ckey="MvtrEOkP6L1zzCEKFHiBBiFAL"
 csecret="oAreNlEHaOzSkqCplqezlL4FnINtGRHv8a7wdzB3hrkYHURobj"
 atoken="859216909-jpy6SKs1SB2VzxcIGx4UCWs8L4D2jeP8rloth2m8"
 asecret="H3dhGUc9LADNBkhdHwFPmjKcTMGYZSb0jJoZh82evnwZa"
-
 class listener(StreamListener):
     def on_data(self, data):
         all_data = json.loads(data)
@@ -33,10 +33,11 @@ class listener(StreamListener):
         username = all_data["user"]["screen_name"]
         picUrl=all_data["user"]["profile_image_url_https"]
         date=all_data["created_at"]
-
-        cursor.execute('INSERT INTO twitter_streams(stock_name,username,tweets,profile_pic_url,created_at)' \
-                          ' VALUES(%s,%s,%s,%s,%s)',(stock,username,tweet,picUrl,date))
+        now = datetime.datetime.now()
+        cursor.execute('INSERT INTO twitter_streams(stock_name,username,tweets,profile_pic_url,created_at,updated_at)' \
+                          ' VALUES(%s,%s,%s,%s,%s,%s)',(stock,username,tweet,picUrl,date,now))
         mydb.commit()
+        print date + "\n"
         return True
 
 
@@ -48,4 +49,4 @@ auth = OAuthHandler(ckey, csecret)
 auth.set_access_token(atoken, asecret)
 
 twitterStream = Stream(auth, listener())
-twitterStream.filter(track=[stock], async=True)
+twitterStream.filter(track=["$"+stock], async=True)

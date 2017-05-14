@@ -12,10 +12,12 @@ skip_before_filter  :verify_authenticity_token
     def create 
          user = User.find_by(user_email: params[:session][:user_email])
         if user && user.authenticate(params[:session][:password_digest])
-            session[:user_id] = user.userFname
-            render 'welcome/homepage' ,:notice => "Logged in!!"
+            log_in user
+            redirect_to root_path, :notice => 'Logged in successfully'
         else
-            render 'welcome/about',:notice => "sorry unknown combination of email and password"
+            flash.now[:danger] = 'Invalid email/password combination'
+            redirect_to root_path, :notice => "Tracker Disabled!"
+            #render 'login'
         end
     end
     
@@ -25,8 +27,7 @@ skip_before_filter  :verify_authenticity_token
     end
     
     def destroy
-        session[:user_id] = nil
-        flash[:success] = "You have logged out"
+        log_out
         redirect_to root_path
     end
 end

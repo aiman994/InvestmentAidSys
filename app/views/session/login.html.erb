@@ -16,22 +16,27 @@
       height: auto !important;
     }
   </style>
-  
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
         <a class="navbar-brand" href="#">Investment Aid System</a>
         <ul class="nav navbar-nav">
-            <li ><a href="/views/welcome/homepage.html">Home</a></li>
-            <li><a href="/views/company/index.html">Companies</a></li>
-            <li><a href="/views/viewer/news.html">News</a></li>
-            <li><a href="/views/welcome/about.html">About</a></li>
-            <li class="active"><a href="/views/session/login.html">Login</a></li>
+            <li ><a href="/homepage">Home</a></li>
+            <li><a href="/index">Companies</a></li>
+            <li><a href="/news">News</a></li>
+            <li><a href="/about">About</a></li>
+            <li class="active"><a href="/login">Login</a></li>
           </ul>
+          background="/assets/background.png"  style="background-repeat:no-repeat;background-size:cover;"
     </nav>
+
 
 </head>
 
-<body background="/assets/background.png"  style="background-repeat:no-repeat;background-size:cover;">
+<body >
+        <br>
+        <br>
+        <br>
         
+  
    <div class="login">
 		<div class="login-screen">
   		<div class="app-title">
@@ -43,7 +48,7 @@
       </div>
 
 			<div class="login-form">
-          <form accept-charset="UTF-8" action="/log_in" method="post">
+          <form accept-charset="UTF-8" action="/login" method="post">
             <input name="utf8" type="hidden" value="&#x2713;" />
   					<input name="authenticity_token" type="hidden" value="NNb6+J/j46LcrgYUC60wQ2titMuJQ5lLqyAbnbAUkdo="/>
   				  <div class="control-group">

@@ -14,11 +14,11 @@
     <div><nav class="navbar navbar-inverse navbar-fixed-top">
         <a class="navbar-brand" href="#">Investment Aid System</a>
         <ul class="nav navbar-nav">
-            <li ><a href="/views/welcome/homepage.html">Home</a></li>
-            <li><a href="/views/company/index.html">Companies</a></li>
-            <li><a href="/views/viewer/news.html">News</a></li>
-            <li ><a href="/views/welcome/about.html">About</a></li>
-            <li><a href="/views/session/login.html">Login</a></li>
+            <li ><a href="/homepage">Home</a></li>
+            <li><a href="/index">Companies</a></li>
+            <li><a href="/news">News</a></li>
+            <li ><a href="/about">About</a></li>
+            <li><a href="/login">Login</a></li>
           </ul>
 
         </nav>
@@ -53,12 +53,20 @@
 
         <div class="tab-content">
             <div id="tweet" class="column tab-pane fade in active">
-              <% @tweets.each do |story| %>
+              <% if @tweets == " " %>
+                <% @tweets.each do |story| %>
                 <div class="well">
                   <h4><img alt="Brand" src=<%= story.profile_pic_url %> width="30" height="30"> @<%= story.username %></h4>
+                  <h6><%= story.created_at %></h6>
                   <p><%= story.tweets %></p>
                 </div>
+                <% end %>
+              <% else %>
+                <p><%= link_to "No current tweets for this company. Refresh", "/centralAnalysis" %>
+                  <% puts "THISSSSSSSSSSSSSSSS" + "\n" %>
+                  <% puts @tweets %>
               <% end %>
+              
             </div>
             <div id="bernama" class="tab-pane fade">
               
@@ -438,3 +446,4 @@ std out technical analysis <%= @stdout %>
 <br>
 std out pattern <%= @stdout1%>
 <%= @ticker%>
+<%= session[:PID] %>

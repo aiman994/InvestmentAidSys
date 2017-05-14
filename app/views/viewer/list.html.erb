@@ -4,11 +4,11 @@
 <head> <div><nav class="navbar navbar-inverse navbar-fixed-top">
         <a class="navbar-brand" href="#">Investment Aid System</a>
         <ul class="nav navbar-nav">
-            <li ><a href="/views/welcome/homepage.html">Home</a></li>
-            <li class="active"><a href="/views/company/index.html">Companies</a></li>
-            <li><a href="/views/viewer/news.html">News</a></li>
-            <li ><a href="/views/welcome/about.html">About</a></li>
-            <li><a href="/views/session/login.html">Login</a></li>
+            <li ><a href="/homepage">Home</a></li>
+            <li class="active"><a href="/index">Companies</a></li>
+            <li><a href="/news">News</a></li>
+            <li ><a href="/about">About</a></li>
+            <li><a href="/login">Login</a></li>
           </ul>
 
         </nav>
@@ -46,7 +46,7 @@
     <td><%= company.id %></td>
     <td>   </td> 
     <td><%= company.company_name %></td>
-    <td><a href="/views/analyzer/centralAnalysis/<%= company.stock_tickers%>"> <%= company.stock_tickers%></a></td>
+    <td><a href="/centralAnalysis/<%= company.stock_tickers%>"> <%= company.stock_tickers%></a></td>
   </tr>
 
 <% end %>                  
