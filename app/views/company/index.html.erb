@@ -16,7 +16,7 @@
 </head>
 <br>
 <br>
-<h1>Viewer#company</h1>
+<h1>Company List</h1>
 
 
 <%= form_tag(companies_path, :method => "get", id: "search-form") do %>
@@ -34,7 +34,7 @@
 			    <th>    </th>                     
 			    <th>Company Name</th>
 			    <th> Company Tickers  </th> 
-			    
+			    <th> Exchange Symbols  </th> 
 			  </tr>
 			    <% @comp.each do |company|  %> 
 			  <tr>
@@ -45,6 +45,7 @@
 			    <td>   </td> 
 			    <td><%= company.company_name %></td>
 			    <td><a href="/centralAnalysis/<%= company.stock_tickers%>"> <%= company.stock_tickers%></a></td>
+			    <td><%= company.enchange_sym %></td>
 			  </tr>
 			<% end %>                  
 			</table>  

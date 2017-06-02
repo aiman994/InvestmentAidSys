@@ -6,6 +6,8 @@ from pandas import DataFrame
 import pandas as pd
 import pandas.io.sql as psql
 import time
+import sys
+stocks = "TSLA" #sys.argv[1]
 
 ####################################################################
 
@@ -15,8 +17,7 @@ mydb = MySQLdb.connect(host='localhost',
     db='investmentaidsys')
 
 cursor = mydb.cursor()
-sql='SELECT price_close,price_date,stock_tickers FROM stock_historic_data'
-price = psql.read_sql(sql, mydb)                 
+#sql='SELECT price_close,price_date,stock_tickers FROM stock_historic_data WHERE stock_tickers=%s' % stocks
 
 #######################################################
 
@@ -120,7 +121,7 @@ def patternStorage():
 
 ##################################################################################            
 def currentPattern():
-    print numpydate[-1]
+    print "checking current pattern"
     
     cp1 = percentChange(numpyMatrix [-31],numpyMatrix [-30])
     cp2 = percentChange(numpyMatrix [-31],numpyMatrix [-29])
@@ -256,29 +257,39 @@ def patternReg():
        # now = datetime.datetime.now()
         avgpercentchange= avgpchange/len(plotpatAr)
         predicted_price= ((avgpercentchange/100)+1)*numpyMatrix[-1]
-        cursor.execute('INSERT INTO prediction_data(stock_tickers,price_close,percentChange,predicted_price,updated_at)' \
-                                  ' VALUES(%s,%s,%s,%s,%s)',(numpystock[0],numpyMatrix[-1],avgpercentchange,predicted_price,dateupdate))
+        cursor.execute('INSERT INTO prediction_data(stock_tickers,price_close,percentChange,predicted_price,created_at,updated_at)' \
+                                  ' VALUES(%s,%s,%s,%s,%s,%s)',(numpystock[0],numpyMatrix[-1],avgpercentchange,predicted_price,now,dateupdate))
         mydb.commit()
         cursor.close()
        
 ##############  MAIN   ################################################################3
+cursor.execute("SELECT stock_tickers,created_at FROM prediction_data WHERE stock_tickers='"+stocks+"' AND DATE(created_at) = " + str(datetime.datetime.now().date()))
+som =  psql.read_sql(("SELECT stock_tickers,created_at FROM prediction_data WHERE stock_tickers='"+stocks+"'AND created_at = " + str(datetime.datetime.now().date())),mydb)
+msg = som.shape[0]
+print som
 
-close= pd.to_numeric(price['price_close'])
-date =(price['price_date']).astype(str)
-stock=(price['stock_tickers']).astype(str)
-##############################
-numpystock= np.array(stock)
-numpydate=np.array(date)
-numpyresult= np.array(close)
-###############################
-dataLength = int(close.shape[0])
-numpyMatrix=numpyresult
-###############################
-datearray=[]
-patternAr=[]
-performanceAr=[]
-patterntoReg=[]
-patternStorage()
-currentPattern()
-patternReg()
+if msg==0:
+    price = psql.read_sql(("SELECT price_close,price_date,stock_tickers FROM stock_historic_data WHERE stock_tickers= '"+ stocks+"'"), mydb)                 
+
+    close= pd.to_numeric(price['price_close'])
+    date =(price['price_date']).astype(str)
+    stock=(price['stock_tickers']).astype(str)
+    numpystock= np.array(stock)
+    numpydate=np.array(date)
+    numpyresult= np.array(close)
+    ###############################
+    dataLength = int(close.shape[0])
+    numpyMatrix=numpyresult
+    ###############################
+    datearray=[]
+    patternAr=[]
+    performanceAr=[]
+    patterntoReg=[]
+    patternStorage()
+    currentPattern()
+    patternReg()
+
+else:
+    print "prediction already made for today"
+
 

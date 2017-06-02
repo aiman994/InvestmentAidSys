@@ -10,69 +10,94 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170513174533) do
+ActiveRecord::Schema.define(version: 20170601165359) do
 
-  create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+  create_table "company", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "company_name"
     t.string   "stock_tickers"
-    t.string   "company_sector"
+    t.string   "enchange_sym"
     t.string   "company_industry"
+    t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
-  create_table "prediction_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
-    t.string "stock_tickers"
-    t.float  "price_close",     limit: 24
-    t.float  "percentChange",   limit: 24
-    t.float  "predicted_price", limit: 24
-    t.string "updated_at",                 null: false
+  create_table "fb_streams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "stock_name"
+    t.string   "fb_user"
+    t.string   "post"
+    t.string   "pic_url"
+    t.string   "posts_url"
+    t.string   "time_posted"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "stock_historic_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "predicted_data", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "stock_tickers",   limit: 20, null: false
+    t.float  "price_close",     limit: 24, null: false
+    t.float  "percentChange",   limit: 24, null: false
+    t.float  "predicted_price", limit: 24, null: false
+    t.string "updated_at",      limit: 30, null: false
+  end
+
+  create_table "prediction_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "stock_tickers"
+    t.float    "price_close",     limit: 24
+    t.float    "percentChange",   limit: 24
+    t.float    "predicted_price", limit: 24
+    t.datetime "created_at",                 null: false
+    t.string   "updated_at",                 null: false
+  end
+
+  create_table "stock_historic_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "stock_tickers"
     t.string   "price_date"
-    t.float    "price_close",   limit: 24
-    t.float    "price_high",    limit: 24
-    t.float    "price_low",     limit: 24
-    t.float    "price_open",    limit: 24
-    t.float    "volume",        limit: 24
-    t.datetime "updated_at"
+    t.string   "price_close"
+    t.string   "price_high"
+    t.string   "price_low"
+    t.string   "price_open"
+    t.string   "volume"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  create_table "stock_industry", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "stock_industry", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "industry_name"
     t.string   "industry_sector"
-    t.string   "dayprice_change",      limit: 49
-    t.string   "market_cap",           limit: 50
-    t.string   "p_earning",            limit: 49
-    t.string   "returnEquity",         limit: 49
-    t.string   "div_yield",            limit: 49
-    t.string   "longTermDebttoEquity", limit: 49
-    t.string   "priceTobook",          limit: 49
-    t.string   "netProfitMargin",      limit: 49
-    t.string   "priceToFreecashFlow",  limit: 49
+    t.float    "dayprice_change",      limit: 24
+    t.float    "market_cap",           limit: 24
+    t.float    "p_earning",            limit: 24
+    t.float    "returnEquity",         limit: 24
+    t.float    "div_yield",            limit: 24
+    t.float    "longTermDebttoEquity", limit: 24
+    t.float    "priceTobook",          limit: 24
+    t.float    "netProfitMargin",      limit: 24
+    t.float    "priceToFreecashFlow",  limit: 24
+    t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
 
-  create_table "stock_sectors", primary_key: "sectors_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "sectors_name"
-    t.bigint "dayprice_change"
-    t.string "market_cap",           limit: 100
-    t.bigint "p_earning"
-    t.bigint "returnEquity"
-    t.bigint "div_yield"
-    t.bigint "longTermDebttoEquity"
-    t.bigint "priceTobook"
-    t.bigint "netProfitMargin"
-    t.bigint "priceToFreecashFlow"
+  create_table "stock_sectors", primary_key: "sectors_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "sectors_name"
+    t.float    "dayprice_change",      limit: 24
+    t.float    "market_cap",           limit: 24
+    t.float    "p_earning",            limit: 24
+    t.float    "returnEquity",         limit: 24
+    t.float    "div_yield",            limit: 24
+    t.float    "longTermDebttoEquity", limit: 24
+    t.float    "priceTobook",          limit: 24
+    t.float    "netProfitMargin",      limit: 24
+    t.float    "priceToFreecashFlow",  limit: 24
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
-  create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "twitter_streams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+  create_table "twitter_streams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "stock_name"
     t.string   "username"
     t.string   "tweets"
@@ -81,11 +106,12 @@ ActiveRecord::Schema.define(version: 20170513174533) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "userFname"
-    t.string "password_digest"
-    t.string "user_Cntct"
-    t.string "user_email"
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "userId"
+    t.string  "userFname"
+    t.string  "password_digest"
+    t.string  "user_Cntct"
+    t.string  "user_email"
   end
 
 end

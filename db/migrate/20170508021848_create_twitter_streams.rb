@@ -1,6 +1,6 @@
 class CreateTwitterStreams < ActiveRecord::Migration[5.0]
   def change
-    create_table :twitter_streams do |t|
+    create_table :twitter_streams,force: true do |t|
     t.string :stock_name
     t.string :username
     t.string :tweets

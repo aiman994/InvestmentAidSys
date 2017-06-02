@@ -1,0 +1,2 @@
+class FbStream < ApplicationRecord
+end

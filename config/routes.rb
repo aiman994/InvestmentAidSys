@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'company/index'
 
     resource :user , :controller => 'user'
-    resource :companies, :controller => 'company'
+    resource :company, :controller => 'company'
     resource :sessions
 
     root 'welcome#homepage'   
@@ -33,8 +32,8 @@ Rails.application.routes.draw do
     #post 'login' => 'session#login'
 
     get '/signup' => 'user#signup'
-    post '/companies' => 'viewer#companies'
-
+    post '/companies' => 'company#show'
+    get '/companies' => 'company#show'
     #get "/views/session/login.html", to: "session#login", as: "logins"
 
     post "/signup", to: "user#signup"
@@ -45,10 +44,12 @@ Rails.application.routes.draw do
     get "/homepage", to: "welcome#homepage", as: "homepage"
     get "/about", to: "welcome#about", as: "about"
     get "/views/analyzer/data/", to: "analyzer#historic_data", as: "historic" , :constraints => { :tick => /[^\/]+/ }
+    post "/views/analyzer/data/", to: "analyzer#historic_data", :constraints => { :tick => /[^\/]+/ }
     
     get "/index", to: "company#index"
     get "/views/company/searchView.html", to: "company#create", :defaults => { :format => 'html' }
     get "/views/company/show.html", to: "company#show"
+
     get "/news", to: "viewer#news", as: "news"
     #get "/views/analyzer/centralAnalysis.html", to: "analyzer#centralAnalysis", as: "centralAnalysis"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

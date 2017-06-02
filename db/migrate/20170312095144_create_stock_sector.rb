@@ -1,6 +1,6 @@
 class CreateStockSector < ActiveRecord::Migration[5.0]
   def change
-    create_table :stock_sectors do |t|
+    create_table :stock_sectors,force: true do |t|
       t.string :sectors_name
       t.float :dayprice_change
       t.float :market_cap

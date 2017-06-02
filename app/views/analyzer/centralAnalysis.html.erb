@@ -1,10 +1,8 @@
 <link rel="stylesheet" href="/assets/css/session.scss">
 <link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-<script src="/assets/javascripts/js/Highstock/highstock.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://code.highcharts.com/stock/highstock.js"></script>
-<script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -53,7 +51,7 @@
 
         <div class="tab-content">
             <div id="tweet" class="column tab-pane fade in active">
-              <% if @tweets == " " %>
+              <% if @tweets != " " %>
                 <% @tweets.each do |story| %>
                 <div class="well">
                   <h4><img alt="Brand" src=<%= story.profile_pic_url %> width="30" height="30"> @<%= story.username %></h4>
@@ -69,12 +67,25 @@
               
             </div>
             <div id="bernama" class="tab-pane fade">
-              
-              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              bernamaa not yet
+             
             </div>
             <div id="fb" class="tab-pane fade">
-              <h3>Menu 2</h3>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+             <% if @fb != " " %>
+                <% @fb.each do |post| %>
+                <div class="well">
+                  <h4><img alt="Brand" src="https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1908056_10152627304334641_7130236665401879348_n.png?oh=3b180c1020b5855a113c121f2e44a05b&oe=59B767F0" width="30" height="30"> @ <%= post.fb_user %></h4>
+                  <h6><%= post.time_posted %></h6>
+                  <p><%= post.post %></p>
+                  <img  src=<%= post.pic_url %> width="80" height="50">
+                  <a href=<%= post.posts_url %> > Read more </a>
+                </div>
+                <% end %>
+              <% else %>
+                <p><%= link_to "No current Facebook posts for this company. Refresh", "/centralAnalysis" %>
+                  <% puts "THISSSSSSSSSSSSSSSS" + "\n" %>
+                  <% puts @fb %>
+              <% end %>
             </div>
           </div>
         </div>
@@ -112,24 +123,24 @@
             $.each(stockList, function (index, stock){
               ohlc.push([
                   parseInt(stock.price_date), // the date
-                  stock.price_open, // open
-                  stock.price_high, // high
-                  stock.price_low, // low
-                  stock.price_close // close
+                  parseFloat(stock.price_open), // open
+                  parseFloat(stock.price_high), // high
+                  parseFloat(stock.price_low), // low
+                  parseFloat(stock.price_close) // close
               ]);
               volume.push([
                   parseInt(stock.price_date), // the date
-                  stock.volume // the volume
+                  parseFloat(stock.volume) // the volume
               ]);
             });
 
             $.each(predictionList, function(index, prediction){
               predicted_prices.push([
                 parseInt(prediction.updated_at),
-                prediction.predicted_price
+                parseFloat(prediction.predicted_price)
               ]);
             })
-
+           console.log(stockList)
             seriesOptions = [
               {
                   type: 'spline',
@@ -413,7 +424,7 @@
                           x: -3
                       },
                       title: {
-                          text: 'OHLC'
+                          text: 'Past Prices'
                       },
                       height: '60%',
                       lineWidth: 2
@@ -444,6 +455,7 @@
 
 std out technical analysis <%= @stdout %>
 <br>
-std out pattern <%= @stdout1%>
+std out pattern <%= @stdeerr1%>
+<%= @stdout1%>
 <%= @ticker%>
 <%= session[:PID] %>

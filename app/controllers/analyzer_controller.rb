@@ -1,9 +1,9 @@
 class AnalyzerController < ApplicationController
   def centralAnalysis
   	
-  	@stdout, stdeerr, status = Open3.capture3("python app/assets/pythonScripts/technicalAnalysis.py " + params[:id] )
+  	@stdout, @stdeerr, status = Open3.capture3("python app/assets/pythonScripts/dataPull.py " + params[:id] )
   	$ticker = params[:id]
-    @stdout1, @stdeerr1, status1= Open3.capture3("python app/assets/pythonScripts/patternRecognition.py")
+    @stdout1, @stdeerr1, status1= Open3.capture3("python app/assets/pythonScripts/patternRecognition.py "+ params[:id] )
     
 
     if session[:PID] == nil
@@ -21,13 +21,14 @@ class AnalyzerController < ApplicationController
       end
 
     end
-    @tweets = TwitterStream.where("stock_name =?", $ticker).order("updated_at DESC")
+    @tweets = TwitterStream.where("stock_name =?", $ticker)#.order("updated_at DESC")
+    @fb = FbStream.where("stock_name =?", $ticker)
+
   end
       
 
   def historic_data
-
-        stock_data = StockHistoricData.all
+        stock_data = StockHistoricData.where("stock_tickers =?", $ticker)
         prediction = Prediction_Data.where("stock_tickers =?", $ticker)
         
         File.open("data.json", "w") do |f|
@@ -38,7 +39,7 @@ class AnalyzerController < ApplicationController
            f.write(prediction.to_json)
         end
         
-        render json: {'stock' => stock_data, 'prediction' => prediction}.to_json #convert into json format
+       render json: {"stock" => stock_data, 'prediction' => prediction}.to_json #convert into json format
   end
 
 

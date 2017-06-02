@@ -1,6 +1,6 @@
 class StockIndustry < ActiveRecord::Migration[5.0]
   def change
-  	create_table :stock_industry do |t|
+  	create_table :stock_industry,force: true do |t|
       t.string :industry_name
       t.string :industry_sector
       t.float :dayprice_change
@@ -14,7 +14,6 @@ class StockIndustry < ActiveRecord::Migration[5.0]
       t.float :priceToFreecashFlow
         
     t.timestamps null: false
-    remove_column :users, :created_at
 	end
   end
 end
