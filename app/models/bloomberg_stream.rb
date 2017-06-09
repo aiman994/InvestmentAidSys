@@ -1,0 +1,2 @@
+class BloombergStream < ApplicationRecord
+end

@@ -73,6 +73,7 @@
             <div id="fb" class="tab-pane fade">
              <% if @fb != " " %>
                 <% @fb.each do |post| %>
+                console.log(post)
                 <div class="well">
                   <h4><img alt="Brand" src="https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1908056_10152627304334641_7130236665401879348_n.png?oh=3b180c1020b5855a113c121f2e44a05b&oe=59B767F0" width="30" height="30"> @ <%= post.fb_user %></h4>
                   <h6><%= post.time_posted %></h6>
@@ -455,7 +456,7 @@
 
 std out technical analysis <%= @stdout %>
 <br>
-std out pattern <%= @stdeerr1%>
-<%= @stdout1%>
+patternerror<%= @stdeerr1%>
+pattern out<%= @stdout1%>
 <%= @ticker%>
 <%= session[:PID] %>

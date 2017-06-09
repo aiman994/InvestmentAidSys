@@ -1,19 +1,18 @@
 class AnalyzerController < ApplicationController
   def centralAnalysis
   	
-  	@stdout, @stdeerr, status = Open3.capture3("python app/assets/pythonScripts/dataPull.py " + params[:id] )
+  	@stdout, @stdeerr, status = Open3.capture3("python app/assets/pythonScripts/dataPull.py "+ params[:id] )
   	$ticker = params[:id]
     @stdout1, @stdeerr1, status1= Open3.capture3("python app/assets/pythonScripts/patternRecognition.py "+ params[:id] )
     
-
     if session[:PID] == nil
-      @pid = Process.spawn("python app/assets/pythonScripts/twitter.py "+ params[:id]  )
+      @pid = Process.spawn("python app/assets/pythonScripts/twitter.py "+ params[:id])
       process_id @pid
       current_tick $ticker
     else 
       if  session[:ticker] != params[:id]
         begin 
-            Process.kill "TERM", session[:PID]
+            Process.kill "TERM", session[:PID]  
         rescue Errno::ESRCH
             false
         end
@@ -21,9 +20,9 @@ class AnalyzerController < ApplicationController
       end
 
     end
-    @tweets = TwitterStream.where("stock_name =?", $ticker)#.order("updated_at DESC")
-    @fb = FbStream.where("stock_name =?", $ticker)
-
+    @tweets = TwitterStream.where("stock_name =?",  params[:id])#.order("updated_at DESC")
+    companyname= Company.where("stock_tickers =?", $ticker).pluck(:company_name)
+    @fb = FbStream.where("stock_name =?", companyname)
   end
       
 

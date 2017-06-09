@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     #post 'login' => 'session#login'
 
     get '/signup' => 'user#signup'
+    
     post '/companies' => 'company#show'
     get '/companies' => 'company#show'
     #get "/views/session/login.html", to: "session#login", as: "logins"
@@ -43,6 +44,7 @@ Rails.application.routes.draw do
     get "/centralAnalysis/:id", to: "analyzer#centralAnalysis", as: "analysis" , :constraints => { :id => /[^\/]+/ }
     get "/homepage", to: "welcome#homepage", as: "homepage"
     get "/about", to: "welcome#about", as: "about"
+
     get "/views/analyzer/data/", to: "analyzer#historic_data", as: "historic" , :constraints => { :tick => /[^\/]+/ }
     post "/views/analyzer/data/", to: "analyzer#historic_data", :constraints => { :tick => /[^\/]+/ }
     

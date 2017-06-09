@@ -12,9 +12,10 @@
     height:auto;
     
 }
+  
 </style>
-<body>
-    <div><nav class="navbar navbar-inverse navbar-fixed-top">
+<head>
+<div><nav class="navbar navbar-inverse navbar-fixed-top">
         <a class="navbar-brand" href="#">Investment Aid System</a>
         <ul class="nav navbar-nav">
             <li class="active"><a href="/homepage">Home</a></li>
@@ -24,29 +25,33 @@
             <li><a href="/login">Login</a></li>
              <li>
               <% if logged_in? %>
-                <%= link_to "Log out", "/log_out", method: :delete %>
+                <%= link_to "Log out", "/logout", method: :delete %>
                 <% end %>
               </li>
+              <li>  
+                <% if logged_in? %>
+                <%=link_to "HI, "+ @current_user.userFname %> !
+                <% end %>
+            </li>
           </ul>
 
         </nav>
     </div>
+</head>
+<body>
     <br>
     <br>
-      <br>
     <br>
-      <br>
+   <%= flash_messages %>
     <br>
-    <h1>  <% if logged_in? %>
-          <li> hello <%= @current_user.userFname %> !</li>
-          <% end %>
+    <h1>
 <% @stdout %>
     </h1>
     <div class="jumbotron" > 
         <div class="container">
             <h1>Investment Aid System</h1>
                 <p>With Technical Analysis and Text Mining Using python and Ruby on Rails</p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+                <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more</a></p>
         </div>
     </div>
 
