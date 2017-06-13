@@ -1,0 +1,2 @@
+class CompanySummary < ApplicationRecord
+end

@@ -53,9 +53,11 @@ try:
         if len(msg1)>0:
             print " dah adaa \n"
             for each in msg1:
+                print msg1
                 date=int(each[1])/1000
                 date=time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(date))
                 latestDate = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+                print latestDate
                 if latestDate.date() == (datetime.datetime.now()-datetime.timedelta(days=1)).date():
                     print latestDate
                     print " up to date"

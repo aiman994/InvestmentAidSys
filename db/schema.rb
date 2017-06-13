@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170609040233) do
+ActiveRecord::Schema.define(version: 20170612155158) do
 
   create_table "bloomberg_streams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "companyNme"
@@ -36,6 +36,28 @@ ActiveRecord::Schema.define(version: 20170609040233) do
     t.string   "marketCap"
   end
 
+  create_table "company_summaries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "stock_tickers"
+    t.string   "prevClose"
+    t.string   "open"
+    t.string   "bid"
+    t.string   "ask"
+    t.string   "dayRange"
+    t.string   "fiftytwoWRange"
+    t.string   "volume"
+    t.string   "avgvol"
+    t.string   "marketCap"
+    t.string   "Beta"
+    t.string   "PEratioTTM"
+    t.string   "EPSttm"
+    t.string   "earningDate"
+    t.string   "DividentYield"
+    t.string   "ExdivDate"
+    t.string   "yearTargetEst"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "fb_streams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "stock_name"
     t.string   "fb_user"
@@ -43,8 +65,10 @@ ActiveRecord::Schema.define(version: 20170609040233) do
     t.string   "pic_url"
     t.string   "posts_url"
     t.string   "time_posted"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "polarity"
+    t.string   "subjectivity"
   end
 
   create_table "predicted_data", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

@@ -6,7 +6,7 @@ import datetime
 import re
 from textblob import TextBlob
 import sys
-companynme= sys.argv[1]
+stocks= sys.argv[1]
 
 mydb = MySQLdb.connect(host='localhost',
     user='root',
@@ -22,7 +22,7 @@ titleList=[]
 storyList=[]
 polarList=[]
 subjectList=[]
-##companynme= "samsung"
+
 story=""
 title=""
 dates=""
@@ -48,9 +48,14 @@ def CompanyintoWord(comp):
             url+=wordList[i]
     return url
 
+cursor.execute ("select company_name,stock_tickers from company where stock_tickers='"+stocks+"'")
+data= cursor.fetchall()
+for each in data:
+    Compname= each[0]
 
-print "pulling data from...." + CompanyintoWord(companynme)
-r = requests.get(CompanyintoWord(companynme))
+print "pulling data from bloomberg for...." + CompanyintoWord(Compname)
+
+r = requests.get(CompanyintoWord(Compname))
 root = LH.fromstring(r.content)
 
 
@@ -71,32 +76,40 @@ for each in story:
     content= content.replace("u' ","")
     content= content.replace("      ","")
     content= content.replace('u" ',"")
-    
+    content= content.replace("[","")
+    content= content.replace("']","")
     synopsis = TextBlob(content)
     polarList.append(synopsis.sentiment.polarity)
     subjectList.append(synopsis.sentiment.subjectivity)
     storyList.append(content)
-
+    
 for each in title:
-    titles= str(each).replace(' u" ', "")
+
+    titles= each.encode('utf-8').strip().replace(' u" ', "")
     titles = titles.replace(" u' ", "")
     titleList.append(titles)
     
 for each in dates:
     zen= each.split("', u' ")
     date= str(zen).replace("u'","")
+    date= date.replace("[","")
+    date= date.replace("']","")
     dateList.append(date)
 
-    
-df = pd.DataFrame(columns=['headline', 'story', 'URL'])
 if len(storyList)== len(newsUrl) & len(storyList) == len(titleList):
-    x=0
-    while x < len(newsUrl):
-        now = datetime.datetime.now()
-        cursor.execute('INSERT INTO bloomberg_streams(companyNme,newsDate,headlines,story,newsUrl,polarity,subjectivity,created_at,updated_at)' \
-                              ' VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)',(companynme,dateList[x],titleList[x],storyList[x],newsUrl[x],polarList[x],subjectList[x],now,now))
-        x+=1
-        print x
-   
+    for each in newsUrl:
+        cursor.execute("SELECT companyNme,newsUrl FROM bloomberg_streams WHERE companyNme= '"+ stocks +"' AND newsUrl='"+each+"'")
+        msg1 = cursor.fetchall()
+        print msg1
+        if  len(msg1)<1:
+            x=0
+            while x < len(newsUrl):
+                now = datetime.datetime.now()
+                cursor.execute('INSERT INTO bloomberg_streams(companyNme,newsDate,headlines,story,newsUrl,polarity,subjectivity,created_at,updated_at)' \
+                                      ' VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)',(stocks,dateList[x],titleList[x],storyList[x],newsUrl[x],polarList[x],subjectList[x],now,now))
+                x+=1
+        elif len(msg1)>=1:
+            print "already saved earlier"
+
 mydb.commit()
 cursor.close()
