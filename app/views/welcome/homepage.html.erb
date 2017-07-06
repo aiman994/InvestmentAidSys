@@ -15,39 +15,19 @@
   
 </style>
 <head>
-<div><nav class="navbar navbar-inverse navbar-fixed-top">
-        <a class="navbar-brand" href="#">Investment Aid System</a>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="/homepage">Home</a></li>
-            <li><a href="/index">Companies</a></li>
-            <li><a href="/news">News</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/login">Login</a></li>
-             <li>
-              <% if logged_in? %>
-                <%= link_to "Log out", "/logout", method: :delete %>
-                <% end %>
-              </li>
-              <li>  
-                <% if logged_in? %>
-                <%=link_to "HI, "+ @current_user.userFname %> !
-                <% end %>
-            </li>
-          </ul>
-
-        </nav>
-    </div>
+      <%= render 'shared/navbar_Layout' %>
 </head>
 <body>
     <br>
     <br>
     <br>
-   <%= flash_messages %>
+   
     <br>
+    <%= flash_messages %>
     <h1>
 <% @stdout %>
     </h1>
-    <div class="jumbotron" > 
+    <div class="jumbotron bgimg" > 
         <div class="container">
             <h1>Investment Aid System</h1>
                 <p>With Technical Analysis and Text Mining Using python and Ruby on Rails</p>

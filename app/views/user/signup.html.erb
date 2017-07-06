@@ -1,28 +1,18 @@
 <head>
  <title>Sign Up | Investment Aid System</title>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <a class="navbar-brand" href="#">Investment Aid System</a>
-        <ul class="nav navbar-nav">
-            <li ><a href="/homepage">Home</a></li>
-            <li><a href="/index">Companies</a></li>
-            <li><a href="/news">News</a></li>
-            <li><a href="/about">About</a></li>
-            <li class="active"><a href="/login">Login</a></li>
-        </ul>
-
-    </nav>
-
+  <%= render 'shared/navbar_Layout' %>
 </head>
     <link rel="stylesheet" href="/assets/css/session.scss">
     <link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-<body background="/assets/background.png">
-    <br>
+<body background="/assets/background.png"  style="position:static;overflow:auto;background-repeat:no-repeat;background-size:cover;">
     <br>
        
     <% provide(:title, 'Sign up') %>
-    <h1 align="center"><span class="label label-warning">Sign up</span></h1>
+
         <div class= "login" >
+          <h1 align="center" style="color:white">Sign Up</h1>
+    <p style="color:white;font-size:110%" align="center">Sign up to an account for free</p>
             <div class="login-screen" >
                 <div class="row">
                   <div class="col-md-7">

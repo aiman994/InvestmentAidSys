@@ -1,54 +1,54 @@
 <link rel="stylesheet" href="/assets/css/session.scss">
 <link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-<head> <div><nav class="navbar navbar-inverse navbar-fixed-top">
-        <a class="navbar-brand" href="#">Investment Aid System</a>
-        <ul class="nav navbar-nav">
-            <li ><a href="/homepage">Home</a></li>
-            <li class="active"><a href="/index">Companies</a></li>
-            <li><a href="/news">News</a></li>
-            <li ><a href="/about">About</a></li>
-            <li><a href="/login">Login</a></li>
-          </ul>
-
-        </nav>
-    </div>
+<head> 
+   <%= render 'shared/navbar_Layout' %>
 </head>
 <br>
 <br>
-<h1>Viewer#company</h1>
-<%= form_tag(companies_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Companies" %>
-    <%= submit_tag "Search", :name => nil, :controller => "viewer", :action => "list"%>
-<% end %>
+<h1 align="center" style="color:white">Company List</h1>
+<p style="color:white;font-size:110%" align="center">This list consist of companies listed in the NASDAQ and NYSE Exchange</p>
+<br>
+<div class ="row">
+    <div class ="col-md-1"></div>
+    <div class ="col-md-6" align="right">
+        <%= form_tag(companies_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Company" %>
+        <%= submit_tag "Search" %>
+        <% end %>
+    </div>
+        
+    <div class ="col-md-5" align="left"><text bgcolor="#000000" style="color:white;font-size:120%"> <%= will_paginate @comp %> </text></div>
+</div>
 
 <% if @company.blank? %>
   <h4>There are no company containing the term <%= params[:search] %>.</h4>
 <% end %>
 
 <%= will_paginate @company %>
-<table style="width: 80%; marginLeft:30px;">                         
-  <tr style="height: 50px">
-    <th>    </th>
-    <th>    </th> 
-    <th>    </th>     
-    <th>No. </th> 
-    <th>    </th>                     
-    <th>Company Name</th>
-    <th> Company Tickers  </th> 
-    
-  </tr>
-    <% @company.each do |company|  %> 
-  <tr>
-    <td>    </td>
-    <td>    </td>
-    <td>   </td>
-    <td><%= company.id %></td>
-    <td>   </td> 
-    <td><%= company.company_name %></td>
-    <td><a href="/centralAnalysis/<%= company.stock_tickers%>"> <%= company.stock_tickers %></a></td>
-  </tr>
-
-<% end %>                  
-</table>               
-
+<iv class ="col-md-4"></div>
+<div class ="col-md-12">
+    <div class ="col-md-2"></div>
+    <div class ="col-md-10">
+            <table class ="table table-bordered"  bgcolor="#fbfbfb" style="width: 80%; marginLeft:30px;">
+            <thead class="">                       
+              <tr bgcolor="#000000" style="height: 50px;color:white;">   
+                <th>No. </th>                    
+                <th>Company Name</th>
+                <th> Company Tickers </th> 
+                <th> Exchange  </th> 
+              </tr>
+            </thead>
+                <% @company.each do |company|  %> 
+              <tr bgcolor="#fbfbfb">
+                <td><%= company.id %></td>
+                <td><%= company.company_name %></td>
+                <td><a href="/centralAnalysis/<%= company.stock_tickers%>"> <%= company.stock_tickers%></a></td>
+                <td><%= company.exchange %></td>
+              </tr>
+            <% end %>                  
+            </table>  
+    </div>
+</div>
+      
+</body>

@@ -15,8 +15,7 @@ skip_before_filter  :verify_authenticity_token
             log_in user
             redirect_to root_path, :notice => 'Logged in successfully'
         else
-            flash.now[:danger] = 'Invalid email/password combination'
-            redirect_to root_path, :notice => "Tracker Disabled!"
+            redirect_to root_path, :danger => "Invalid email/password combination"
             #render 'login'
         end
     end

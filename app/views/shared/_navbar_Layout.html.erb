@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/assets/css/session.scss">
+<link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+
+
+<div>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <a class="navbar-brand" href="/homepage">Investment Aid System</a>
+            <ul class="nav navbar-nav">
+                <li ><a href="/homepage">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/news">News</a></li>
+                <% if logged_in? %>
+                  <li class="active"><a href="/index">Companies</a></li>
+                  <li><%= link_to "Log out", "/logout", method: :delete %></li>
+                  <li><%= link_to "HI, "+ @current_user.userFname %> </li>
+                <% else %>
+                  <li><a href="/login">Login</a></li>
+                  <% end %>
+              </ul>
+        </nav>
+    </div>

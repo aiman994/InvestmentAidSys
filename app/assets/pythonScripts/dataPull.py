@@ -4,7 +4,7 @@ import time
 import sys
 import MySQLdb
 import pandas as pd
-stocks = sys.argv[1]
+stocks = "AAPL"#sys.argv[1]
 
 mydb = MySQLdb.connect(host='localhost',
     user='root',
@@ -21,10 +21,10 @@ for each in data:
     exchange= each[1]
 ##############################################
 end = datetime.datetime.now() # ** is the current date. new date
-start = datetime.datetime(2014,end.month,end.day)#past date
+start = datetime.datetime(2014,end.month,end.day)# past date
 stockexchange= exchange+":"+stocks
 print start
-# check db ada data ticker tu ke x
+
 try:
     cursor.execute("SELECT stock_tickers FROM stock_historic_data WHERE stock_tickers = %s" , [stocks])
     msg = cursor.rowcount
