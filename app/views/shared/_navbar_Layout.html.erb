@@ -12,9 +12,9 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/news">News</a></li>
                 <% if logged_in? %>
-                  <li class="active"><a href="/index">Companies</a></li>
-                  <li><%= link_to "Log out", "/logout", method: :delete %></li>
+                  <li><a href="/index">Companies</a></li>
                   <li><%= link_to "HI, "+ @current_user.userFname %> </li>
+                  <li><%= link_to "Log out", "/logout", method: :delete %></li>
                 <% else %>
                   <li><a href="/login">Login</a></li>
                   <% end %>

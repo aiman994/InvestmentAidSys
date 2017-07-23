@@ -8,4 +8,7 @@ class ViewerController < ApplicationController
 		   @company = Company.paginate(:page => params[:page], :per_page => 30)
 		end
   end
+   def news
+   	@bloom= BloombergStream.all.reverse
+   end
 end

@@ -1,6 +1,7 @@
 class AnalyzerController < ApplicationController
+
   def centralAnalysis
-  	@stdout4, @stdeerr4, @status4= Open3.capture3("python app/assets/pythonScripts/summaryScraping.py "+ params[:id])
+  	@stdout4, @stdeerr4, @status4= Open3.capture3("python app/assets/pythonScripts/newScrapeSumm.py "+ params[:id])
     @stdout3, @stdeerr3, @status3= Open3.capture3("python app/assets/pythonScripts/fbscrape.py "+ params[:id])
     @stdout2, @stdeerr2, @status2= Open3.capture3("python app/assets/pythonScripts/bloombergs.py "+ params[:id])
       
@@ -22,13 +23,13 @@ class AnalyzerController < ApplicationController
         end
       deletePid
       end
-
     end
-    @tweets = TwitterStream.where("stock_name =?",  params[:id])#.order("updated_at DESC")
-    @fb = FbStream.where("stock_name =?", params[:id])
-    @bloom= BloombergStream.where("companyNme =?", params[:id])
-    @summ= CompanySummary.where("stock_tickers =?",  params[:id])
 
+    @tweets = TwitterStream.where("stock_name =?",  params[:id]).reverse
+    @fb = FbStream.where("stock_name =?", params[:id]).reverse
+    @bloom= BloombergStream.where("companyNme =?", params[:id]).reverse
+    @summ= CompanySummary.where("stock_tickers =?",  params[:id])
+    @patfound= Prediction_Data.find_by_sql "SELECT stock_tickers,created_at FROM prediction_data WHERE stock_tickers= '"+ params[:id]+"' AND date(created_at)= '"+DateTime.now.beginning_of_day.to_s+"'"
   end
       
 

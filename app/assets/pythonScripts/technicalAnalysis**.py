@@ -8,7 +8,7 @@ from datetime import date
 
 mydb = MySQLdb.connect(host='localhost',
     user='root',
-    passwd='',
+    passwd='1234',
     db='investmentaidsys')
 
 cursor = mydb.cursor()

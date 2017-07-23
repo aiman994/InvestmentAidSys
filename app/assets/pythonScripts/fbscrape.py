@@ -8,7 +8,7 @@ stocks = sys.argv[1]
 
 mydb = MySQLdb.connect(host='localhost',
     user='root',
-    passwd='',
+    passwd='1234',
     db='investmentaidsys')
 cursor = mydb.cursor()
 mydb.set_character_set('utf8mb4')
@@ -19,7 +19,7 @@ mydb.commit()
 cursor.execute('SET character_set_connection=utf8mb4;')
 mydb.commit()
 
-graph = GraphAPI('EAACEdEose0cBAJnel1h6iV2fV2AIrQ9c8knEemYX77RDBH2T4pPzJYgp7pRYDR9iP4bj8cpeTZBxiPZCYLOZBLZAZCaJ6XJmZAybO5ZBElN8nUaAXtQ1ZCSLMtRqZBqRijFvrGEwVXq8I4VD6fViQQFW2CYZBHNOekgSGlIODRzCEChG3FJ4z4ziJ0f6pjUdTjq30ZD')
+graph = GraphAPI('EAACEdEose0cBAP8lY3hrP8WBLpmm6X55yNp9TNystRH91Yd6qjGlm99QmQo1ICa63Aii2PmOSjhATlPlRqgqbSA0mjlKOTzBqXzhAF1nbPlckzYtwRZCWD0XvtxgxAJlHA64ZA97mhEBQh0PZCYKoZCM0rgrDt0ryrQfz6DZCOFFSh6f75SVnxKIg4gbFJZBIZD')
 listpages= ["cnninternational" , "bloombergbusiness"]
 wordList=[]
 

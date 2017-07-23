@@ -1,4 +1,3 @@
-
 import numpy as np
 import datetime
 import MySQLdb
@@ -13,11 +12,12 @@ stocks = sys.argv[1]
 
 mydb = MySQLdb.connect(host='localhost',
     user='root',
-    passwd='',
+    passwd='1234',
     db='investmentaidsys')
 
 cursor = mydb.cursor()
-
+##cursor.execute("SET sql_mode = '' ")
+##mydb.commit()
 #######################################################
 
 def percentChange(startPoint, currentPoint):
@@ -118,11 +118,9 @@ def patternStorage():
         performanceAr.append(futureOutcome)
         y+=1
 
-##    print " num of pattern " + str(len(patternAr))
 
 ##################################################################################            
 def currentPattern():
-    #print "checking current pattern"
     
     cp1 = percentChange(numpyMatrix [-31],numpyMatrix [-30])
     cp2 = percentChange(numpyMatrix [-31],numpyMatrix [-29])
@@ -241,7 +239,7 @@ def patternReg():
 ##        print "\n how similarity === : " + str(howSim)
         sim=80
         while patfound == 0:
-##            print "dalam while====="
+##            print "in while====="
             if howSim>sim:
 ##                print "======how sim > 60" + str(howSim)
                 patdex = patternAr.index(eachPattern)
@@ -271,45 +269,105 @@ def patternReg():
 
     mydb.commit()
     cursor.close()
-       
+##########################################################################################################
+def patternRegfortoday(dates,prevpred):
+    avgpchange=0
+    plotpatAr=[]
+    
+    for eachPattern in patternAr:
+        patfound=0
+        sim1 = 100.00 - abs(percentChange(eachPattern[0], patterntoReg[0]))
+        sim2 = 100.00 - abs(percentChange(eachPattern[1], patterntoReg[1]))
+        sim3 = 100.00 - abs(percentChange(eachPattern[2], patterntoReg[2]))
+        sim4 = 100.00 - abs(percentChange(eachPattern[3], patterntoReg[3]))
+        sim5 = 100.00 - abs(percentChange(eachPattern[4], patterntoReg[4]))
+        sim6 = 100.00 - abs(percentChange(eachPattern[5], patterntoReg[5]))
+        sim7 = 100.00 - abs(percentChange(eachPattern[6], patterntoReg[6]))
+        sim8 = 100.00 - abs(percentChange(eachPattern[7], patterntoReg[7]))
+        sim9 = 100.00 - abs(percentChange(eachPattern[8], patterntoReg[8]))
+        sim10 = 100.00 - abs(percentChange(eachPattern[9], patterntoReg[9]))
+
+        sim11 = 100.00 - abs(percentChange(eachPattern[10], patterntoReg[10]))
+        sim12 = 100.00 - abs(percentChange(eachPattern[11], patterntoReg[11]))
+        sim13 = 100.00 - abs(percentChange(eachPattern[12], patterntoReg[12]))
+        sim14 = 100.00 - abs(percentChange(eachPattern[13], patterntoReg[13]))
+        sim15 = 100.00 - abs(percentChange(eachPattern[14], patterntoReg[14]))
+        sim16 = 100.00 - abs(percentChange(eachPattern[15], patterntoReg[15]))
+        sim17 = 100.00 - abs(percentChange(eachPattern[16], patterntoReg[16]))
+        sim18 = 100.00 - abs(percentChange(eachPattern[17], patterntoReg[17]))
+        sim19 = 100.00 - abs(percentChange(eachPattern[18], patterntoReg[18]))
+        sim20 = 100.00 - abs(percentChange(eachPattern[19], patterntoReg[19]))
+
+        sim21 = 100.00 - abs(percentChange(eachPattern[20], patterntoReg[20]))
+        sim22 = 100.00 - abs(percentChange(eachPattern[21], patterntoReg[21]))
+        sim23 = 100.00 - abs(percentChange(eachPattern[22], patterntoReg[22]))
+        sim24 = 100.00 - abs(percentChange(eachPattern[23], patterntoReg[23]))
+        sim25 = 100.00 - abs(percentChange(eachPattern[24], patterntoReg[24]))
+        sim26 = 100.00 - abs(percentChange(eachPattern[25], patterntoReg[25]))
+        sim27 = 100.00 - abs(percentChange(eachPattern[26], patterntoReg[26]))
+        sim28 = 100.00 - abs(percentChange(eachPattern[27], patterntoReg[27]))
+        sim29 = 100.00 - abs(percentChange(eachPattern[28], patterntoReg[28]))
+        sim30 = 100.00 - abs(percentChange(eachPattern[29], patterntoReg[29]))
+
+
+        howSim = float(sim1+sim2+sim3+sim4+sim5+sim6+sim7+sim8+sim9+sim10+
+                       sim11+sim12+sim13+sim14+sim15+sim16+sim17+sim18+sim19+sim20+
+                       sim21+sim22+sim23+sim24+sim25+sim26+sim27+sim28+sim29+sim30)/30.00
+        
+##        print "\n how similarity === : " + str(howSim)
+        sim=80
+        while patfound == 0:
+##            print "in while====="
+            if howSim>sim:
+##                print "======how sim > 60" + str(howSim)
+                patdex = patternAr.index(eachPattern)
+                patfound = 1
+                plotpatAr.append(eachPattern) 
+                avgpchange += performanceAr[patdex]
+            elif sim<0:
+##                print " sim <0 "
+                break
+            else:
+##                print "smaller than 60" + str(sim)
+                sim-=20
+                patfound=0
+
+    
+    now = datetime.datetime.now() #datetime.date.today().strftime("%Y-%B-%d")
+    dts = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    dt = time.mktime(datetime.datetime.strptime(str(dts), "%Y-%m-%d %H:%M:%S").timetuple())
+    dateupdate= int(round(dt*1000))
+    if len(plotpatAr) >0 :
+        #print "pattern found"
+        avgpercentchange= avgpchange/len(plotpatAr)
+        predicted_price= ((avgpercentchange/100)+1)*numpyMatrix[-1]
+        if round(predicted_price, 3) == prevpred:
+            print " sama , do nothing"
+        else:
+            #print "tak sama "+ str(prevpred) + "   predicted : " + str(round(predicted_price, 3))
+            cursor.execute("UPDATE prediction_data SET predicted_price='"+predicted_price+"' WHERE stock_tickers='"+stocks+ "' AND created_at='"+dates+"'")
+    mydb.commit()
+    cursor.close()
+
+
+###########################################################################################################
+    
 ##############  MAIN   ################################################################3
 # 1 . check if prediction have been done today
-cursor.execute("SELECT stock_tickers,MAX(created_at) FROM prediction_data WHERE stock_tickers= '"+stocks+"'")
+cursor.execute("SELECT stock_tickers,predicted_price,created_at FROM prediction_data WHERE stock_tickers= '"+stocks+"' AND date(created_at)='"+str(datetime.datetime.now().date())+"'")
 msg1 = cursor.rowcount
 print msg1
 
+
 msg = cursor.fetchall()
 print msg
-if msg1>0: # kalau ada dah
+if msg1>0: #if prediction data for todays date available for the stock
     for each in msg:
-        dates=each[1]
+        dates=each[2] # get the dates
+        prevpred=each[1]
         if 'None' not in str(each[1]):
-            if dates.date() == datetime.datetime.now().date():
-                print " prediction have been made for today"
-            else:
-                price = psql.read_sql(("SELECT price_close,price_date,stock_tickers FROM stock_historic_data WHERE stock_tickers= '"+ stocks+"'"), mydb)                 
-                close= pd.to_numeric(price['price_close'])
-                date =(price['price_date']).astype(str)
-                stock=(price['stock_tickers']).astype(str)
-                numpystock= np.array(stock)
-                numpydate=np.array(date)
-                numpyresult= np.array(close)
-                ###############################
-                dataLength = int(close.shape[0])
-                numpyMatrix=numpyresult
-                ###############################
-                datearray=[]
-                patternAr=[]
-                performanceAr=[]
-                patterntoReg=[]
-                patternStorage()
-                currentPattern()
-                patternReg()
-
-        else:       
-        # 2. kalau result is 0 - no prediction
+            print " prediction have been made for today"
             price = psql.read_sql(("SELECT price_close,price_date,stock_tickers FROM stock_historic_data WHERE stock_tickers= '"+ stocks+"'"), mydb)                 
-
             close= pd.to_numeric(price['price_close'])
             date =(price['price_date']).astype(str)
             stock=(price['stock_tickers']).astype(str)
@@ -319,13 +377,30 @@ if msg1>0: # kalau ada dah
             ###############################
             dataLength = int(close.shape[0])
             numpyMatrix=numpyresult
-            ###############################
             datearray=[]
             patternAr=[]
             performanceAr=[]
             patterntoReg=[]
             patternStorage()
             currentPattern()
-            patternReg()
+            patternRegfortoday(dates,prevpred)
 
-
+else:# 2. if no prediction have been made for today the stock
+    price = psql.read_sql(("SELECT price_close,price_date,stock_tickers FROM stock_historic_data WHERE stock_tickers= '"+ stocks+"'"), mydb)                 
+    close= pd.to_numeric(price['price_close'])
+    date =(price['price_date']).astype(str)
+    stock=(price['stock_tickers']).astype(str)
+    numpystock= np.array(stock)
+    numpydate=np.array(date)
+    numpyresult= np.array(close)
+    ###############################
+    dataLength = int(close.shape[0])
+    numpyMatrix=numpyresult
+    ###############################
+    datearray=[]
+    patternAr=[]
+    performanceAr=[]
+    patterntoReg=[]
+    patternStorage()
+    currentPattern()
+    patternReg()

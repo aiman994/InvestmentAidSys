@@ -1,84 +1,73 @@
-
+<link rel="stylesheet" href="/assets/css/session.scss">
 <link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
 <style type="text/css">
 .jumbotron.bgimg {
-    background-image: url('/assets/background.png');
-    
+    background-image: url('/assets/jumbotron.png');
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+    text-shadow: white 0.3em 0.3em 0.3em;
+      
 }
 .jumbotron.container {
     width: 100%;
     height:auto;
     
 }
-  
+
+  div.jumbo {
+    
+    background-color: rgba(192,192,192,0.6);
+    padding: 15px;
+    border-radius: 5px;
+    width: 65%;
+    color:black;
+  }
+
+
+
 </style>
 <head>
       <%= render 'shared/navbar_Layout' %>
 </head>
-<body>
+<body background="/assets/background.png"  style="background-repeat:no-repeat;background-size:cover;">
+    <% if logged_in? %>
     <br>
     <br>
     <br>
-   
-    <br>
+    <%end%>
     <%= flash_messages %>
-    <h1>
-<% @stdout %>
-    </h1>
     <div class="jumbotron bgimg" > 
         <div class="container">
-            <h1>Investment Aid System</h1>
-                <p>With Technical Analysis and Text Mining Using python and Ruby on Rails</p>
-                <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more</a></p>
+          <div class="jumbo">
+           
+              <h1 class="ontop">Investment Aid System</h1>
+                <p>With Technical Analysis and Text Mining Using Python and Ruby on Rails</p>
+                <p><a class="btn btn-logins" href="/about" role="button" style="color:white;">Learn more</a></p>
+          </div>
         </div>
     </div>
+<h1 align="left" style="color:white;margin-left:0.2%">News <a href="/news" style="margin-left:80%;font-size:60%;"> More News >> </a></h1>
+    <% if @bloom != " " %>
 
-        <div class="row">
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="..." alt="...">
-          <div class="caption">
-            <h3>Quality Human Capital Key To Country's Success - King </h3>
-            <p>KUALA LUMPUR, April 24 (Bernama) -- Yang di-Pertuan Agong Sultan Muhammad V said quality human capital is the key to the success of Malaysia in the future. </p>
-            <p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
-          </div>
-        </div>
-      </div>
-
-       <div class="row-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="..." alt="...">
-          <div class="caption">
-            <h3>Cathay Pacific Aims To Fly Higher </h3>
-            <p>   
-
-            Sunday, 09 April 2017
-
-            By Christine Lim KUALA LUMPUR, April 9 (Bernama) -- Hong Kong-based airline, Cathay Pacific, aims to fly higher after a turbulent year and increase its footprint in Malaysiaby expanding its flight network and offering competitive fares
-
-            </p>
-            <p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
-          </div>
-        </div>
-      </div>
-
-       <div class="row-md-6 col-md-4">
-        <div class="thumbnail">
-          <img src="..." alt="...">
-          <div class="caption">
-            <h3>Victim's Father To Take Legal Action</h3>
-            <p> 
-            ALOR SETAR -- The father of the 12-year-old girl who was hit by stray shotgun pellets in Kampung Lubok Keriang, Mukim Lesong, Langgar here yesterday, is planning to take legal action against..</p>
-            <p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
+      <div class="row">
+       <% @bloom.each_slice(3) do |blooms| %>
+       <% blooms.each do |s| %>
+        <div class="col-sm-6 col-md-4">
         
- 
-
-    
+          <div class="thumbnail">
+            <div class="caption">
+              <h3><%= s.headlines %> </h3><h6><%= s.newsDate %></h6>
+              <p><%= s.story %></p>
+              <p>Polarity : <%= s.polarity %></p><p>Subjectivity : <%= s.subjectivity %></p>
+              <p><a href=<%= s.newsUrl %> class="btn btn-logins" role="button" style="color:white;">Read More</a></p>
+            </div>
+          </div>
+        </div>
+        <% end %><% end %><% end %> 
+      </div>
+     
 </body>

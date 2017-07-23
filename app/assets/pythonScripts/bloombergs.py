@@ -10,7 +10,7 @@ stocks= sys.argv[1]
 
 mydb = MySQLdb.connect(host='localhost',
     user='root',
-    passwd='',
+    passwd='1234',
     db='investmentaidsys')
 
 cursor = mydb.cursor()
@@ -57,6 +57,7 @@ print "pulling data from bloomberg for...." + CompanyintoWord(Compname)
 
 r = requests.get(CompanyintoWord(Compname))
 root = LH.fromstring(r.content)
+
 
 
 for news in root.xpath('//div[@class="container"]'):

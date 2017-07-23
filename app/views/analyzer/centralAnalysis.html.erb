@@ -24,18 +24,28 @@
            background-size:cover;
            background-attachment:fixed;    
         }
+         div.tabb {
+    
+            background-color: rgba(192,192,192,0.6);
+            padding: 20px ;
+            border-radius: 5px
+            color:black;
+        }
+     
     </style>
 </head>
 <br>
 <br>
 <br>
 <body class="bgwrapper" background="/assets/background.png"  style="position:static;overflow:auto;background-repeat:no-repeat;background-size:cover;">
-<h1 style="color:white; align:centre;">Central Analysis</h1>
+
+<h1 align="center" style="color:white">Central Analysis</h1>
+<br>
 <div class="row">
   <div class="col-md-8">
     <div id="containers" ></div>
   </div>
-  <div class=" col-md-1"> </div>
+  <div class=" col-md-1"></div>
   <div class=" col-md-4">
     <div class="container col-md-12">
     <div class="panel panel-default">
@@ -46,18 +56,22 @@
        <% @summ.each do |d| %>
       <!-- List group -->
       <ul class="list-group">
-        <li class="list-group-item">Previous Close  &nbsp;&nbsp;&nbsp;  <%= d.prevClose %></li>
-        <li class="list-group-item">Open &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= d.open %></li>
         <li class="list-group-item">Bid  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=d.bid %></li>
         <li class="list-group-item">Ask  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= d.ask %></li>
-        <li class="list-group-item">1 Day Range &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=d.dayRange %></li>
+        <li class="list-group-item">1 Day Range &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=d.dayRange %></li> 
+        <li class="list-group-item">52 week Range  &nbsp;&nbsp;&nbsp;  <%= d.fiftytwoWRange %></li>
+        <li class="list-group-item">Average Volume &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= d.avgvol %></li>
+        <li class="list-group-item">Market Cap  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=d.marketCap %></li>
+        <li class="list-group-item">P/E ratio TTM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= d.PEratioTTM %></li>
+        <li class="list-group-item">Dividend Yield &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=d.DividentYield %></li>
+        <li class="list-group-item">EX-Divident Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=d.ExdivDate %></li>
       </ul>
       <% end -%>
     </div>
   </div>
   </div>
 </div>
-
+<br>
 <script type="text/javascript">
         var seriesOptions = [],
             seriesCounter = 0,
@@ -382,7 +396,7 @@
                     }
                 },
                 title: {
-                    text:  stock_tickers + 'Historical Data and Prediction Graph'
+                    text:  stock_tickers + '  Historical Data and Prediction Graph'
                 },
                 tooltip:{
                     split: true
@@ -418,20 +432,19 @@
 
         }
 </script>
-<br>
- <div class="col-md-8" style="position:static;">
-    <div class="column">
-        <h3 style="color:blue">News</h3>
+<div class="row">
+ <div class="col-md-12" style="position:static;">
+    <div  class="column col-md-9 tabb" style="cmargin-left:20%;">
+       <h1 align="left" style="color:white;margin-left:0.2%;">News</h1>
         <ul class="nav nav-tabs">
-          <li class="active"><a data-toggle="tab" href="#tweet"><img alt="Brand" src="/assets/Twitter-logo.jpg" width="17" height="17">
-                 Twitter</a>
+          <li class="active" style="font-size:15px;color:black;"><a data-toggle="tab" href="#tweet" style="color:black;"><img alt="Brand" src="/assets/Twitter-logo.jpg" width="17" height="17">Twitter</a>
           </li>
-          <li><a data-toggle="tab" href="#bloomberg"><img alt="Brand" src="/assets/bernama.png" width="17" height="17">  Bloomberg</a></li>
-          <li><a data-toggle="tab" href="#fb"><img alt="Brand" src="/assets/fbLogo.png" width="17" height="17">  Facebook</a></li>
+          <li style="font-size:15px;color:black;"><a data-toggle="tab" href="#bloomberg" style="color:black;"><img alt="Brand" src="/assets/bernama.png" width="17" height="17" >  Bloomberg</a></li>
+          <li style="font-size:15px;color:black;"><a data-toggle="tab" href="#fb" style="color:black;"><img alt="Brand" src="/assets/fbLogo.png" width="17" height="17" >  Facebook</a></li>
         </ul>
         <br>
 
-        <div class="tab-content " style="overflow-y: scroll;height: 300px;">
+        <div class="tab-content " style="overflow-y: scroll;height: 500px;">
             <div id="tweet" class="tab-pane fade in active">
               <% if @tweets != " " %>
                 <% @tweets.each do |story| %>
@@ -442,47 +455,61 @@
                 </div>
                 <% end %>
               <% else %>
-                <p><%= link_to "No current tweets for this company. Refresh", "/centralAnalysis" %>
-              <% end %>
-              
+                <p><%= link_to "No current tweets for this company. Refresh", "/centralAnalysis" %></p>
+              <% end %> 
             </div>
+
             <div id="bloomberg" class="tab-pane fade">
                <% if @bloom != " " %>
                 <% @bloom.each do |s| %>
                 <div class="well">
-                  <h4> <%= s.headlines %></h6>
-                    <h6><%= s.newsDate %></h6>
+                  <h4> <%= s.headlines %></h4>
+                  <h6><%= s.newsDate %></h6>
                   <p><%= s.story %></p>
                   <p>Polarity : <%= s.polarity %></p><p>Subjectivity : <%= s.subjectivity %></p>
                   <a href=<%= s.newsUrl %> > Read more </a>
                 </div>
                 <% end %>
-              <% else %>
-                <p><%= link_to "No current news for this company. Refresh", "/centralAnalysis" %>
+                <% else %>
+                <p><%= link_to "No current news for this company. Refresh", "/centralAnalysis" %></p>
               <% end %>
-             
             </div>
+
             <div id="fb" class="tab-pane fade">
              <% if @fb != " " %>
                 <% @fb.each do |post| %>
                 console.log(post)
                 <div class="well">
+                  <% if post.fb_user == 'cnninternational' %>
                   <h4><img alt="Brand" src="https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1908056_10152627304334641_7130236665401879348_n.png?oh=3b180c1020b5855a113c121f2e44a05b&oe=59B767F0" width="30" height="30"> @ <%= post.fb_user %></h4>
+                  <% else %>
+                  <h4><img alt="Brand" src="/assets/bernama.png" width="30" height="30"> @ <%= post.fb_user %></h4>
+                  <% end %>
                   <h6><%= post.time_posted %></h6>
                   <p><%= post.post %></p>
                   <img  src=<%= post.pic_url %> width="80" height="50">
                   <p>Polarity : <%= post.polarity %></p><p>Subjectivity : <%= post.subjectivity %></p>
                   <a href=<%= post.posts_url %> > Read more </a>
-                </div>
+                  </div>
+                  <% end %>
+                <% else %>
+                <p><%= link_to "No current Facebook posts for this company. Refresh", "/centralAnalysis" %> </p>
                 <% end %>
-              <% else %>
-                <p><%= link_to "No current Facebook posts for this company. Refresh", "/centralAnalysis" %>
-              <% end %>
             </div>
+
           </div>
         </div>
+        <div class="col-md-2"> </div>
+        <% if @patfound.any? %>
+              <% else %>
+              <div class="col-md-4" style="background-color:grey;margin-left:0.5%;opacity:0.6;">
+                  <h1  align="left" style="color:white;" > No pattern found. The stock is either developing a new patterns or there are no new price data for analysis </h1>
+                <% end %>
+            </div>
     </div>
+
   </div>
+
 
 <% end %>
 </body>
